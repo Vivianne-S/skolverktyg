@@ -1,0 +1,31 @@
+import type { Metadata } from "next";
+import AdSlot from "@/components/AdSlot";
+import MatteAk3Quiz from "./MatteAk3Quiz";
+
+export const metadata: Metadata = {
+  title: "Matte-test åk 3 – snabb diagnos (quiz)",
+  description: "Gratis matte-test för åk 3. Snabb diagnos med facit och tips.",
+};
+
+export default function Page() {
+  return (
+    <main className="mx-auto max-w-3xl">
+      <h1 className="text-3xl font-bold tracking-tight text-white">Matte-test åk 3</h1>
+      <p className="mt-3 text-white/70">
+        Snabbt quiz – få resultat och facit direkt.
+      </p>
+
+      <div className="mt-6">
+        <AdSlot label="Annons (topp)" />
+      </div>
+
+      <div className="mt-6">
+        <MatteAk3Quiz />
+      </div>
+
+      <div className="mt-6">
+        <AdSlot label="Annons (under quiz)" />
+      </div>
+    </main>
+  );
+}

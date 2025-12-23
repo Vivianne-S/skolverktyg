@@ -41,7 +41,7 @@ const QUESTIONS: Q[] = [
     q: "Vad är 6 · 4?",
     choices: ["10", "18", "24", "26"],
     correct: 2,
-    explain: "6 fyror: 4+4+4+4+4+4 = 24.",
+    explain: "6 fyror: 4+4+4+4+4+4+4 = 24.",
     skillTag: "Multiplikation",
   },
   {
@@ -89,7 +89,8 @@ const QUESTIONS: Q[] = [
     q: "Vilket är rätt: 3 hundratal + 2 tiotal + 9 ental?",
     choices: ["329", "239", "392", "923"],
     correct: 0,
-    explain: "3 hundratal (300) + 2 tiotal (20) + 9 ental (9) = 329.",
+    explain:
+      "3 hundratal (300) + 2 tiotal (20) + 9 ental (9) = 329.",
     skillTag: "Positionssystem",
   },
 ];
@@ -109,6 +110,7 @@ export default function MatteAk3Quiz() {
     [answers]
   );
 
+  // ✅ Typesäker score (Vercel/TS-proof)
   const score = useMemo<number>(() => {
     return answers.reduce<number>((acc, a, i) => {
       if (a === null) return acc;
@@ -230,11 +232,12 @@ export default function MatteAk3Quiz() {
                       key={idx}
                       type="button"
                       onClick={() => {
+                        // (Valfritt) lås efter submit:
+                        // if (submitted) return;
+
                         const copy = [...answers];
                         copy[i] = idx;
                         setAnswers(copy);
-                        // Om man ändrar svar efter submit, behåll facit-visning men uppdatera logiken:
-                        // (om du vill låsa efter submit: lägg in "if (submitted) return;" här)
                       }}
                       className={[base, normal, stateCls].join(" ")}
                     >
@@ -247,9 +250,7 @@ export default function MatteAk3Quiz() {
               {submitted && isAnswered && (
                 <div className="mt-3 rounded-2xl border border-white/10 bg-black/20 p-3">
                   <p className="text-sm text-white/70">
-                    <span className="font-semibold text-white/85">
-                      Facit:
-                    </span>{" "}
+                    <span className="font-semibold text-white/85">Facit:</span>{" "}
                     {q.choices[q.correct]}
                   </p>
                   <p className="mt-1 text-sm text-white/60">
@@ -311,8 +312,7 @@ export default function MatteAk3Quiz() {
               <p className="text-sm font-semibold text-white/85">Träna detta</p>
               {missesBySkill.length === 0 ? (
                 <p className="mt-1 text-sm text-white/60">
-                  Snyggt! Du hade inga fel (eller inga svar). Testa igen och
-                  håll nivån.
+                  Snyggt! Du hade inga fel (eller inga svar). Testa igen och håll nivån.
                 </p>
               ) : (
                 <ul className="mt-2 space-y-1 text-sm text-white/65">
@@ -338,8 +338,7 @@ export default function MatteAk3Quiz() {
           </div>
 
           <p className="mt-3 text-xs text-white/50">
-            Tips: Låt eleven svara högt och förklara hur den tänker – det ger
-            snabbast utveckling.
+            Tips: Låt eleven svara högt och förklara hur den tänker – det ger snabbast utveckling.
           </p>
         </div>
       )}

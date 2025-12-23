@@ -1,9 +1,8 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import Link from "next/link";
-import Script from "next/script";
-import { siteMeta } from "@/lib/seo";
 import MainNav from "@/components/MainNav";
+import { siteMeta } from "@/lib/seo";
 
 const meta = siteMeta();
 
@@ -13,22 +12,24 @@ export const metadata: Metadata = {
   metadataBase: new URL(meta.url),
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+const ADSENSE_CLIENT = "ca-pub-7517436157328119";
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="sv">
-      <body className="min-h-screen bg-[#070A12] text-white antialiased">
-        {/* Google AdSense (site verification / loader) */}
-        <Script
+      <head>
+        {/* (Viktigt) AdSense account meta – hjälper verifiering */}
+        <meta name="google-adsense-account" content={ADSENSE_CLIENT} />
+
+        {/* (Viktigt) AdSense script i head */}
+        <script
           async
-          strategy="afterInteractive"
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7517436157328119"
+          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}`}
           crossOrigin="anonymous"
         />
+      </head>
 
+      <body className="min-h-screen bg-[#070A12] text-white antialiased">
         {/* Ambient background */}
         <div className="pointer-events-none fixed inset-0 -z-10">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(99,102,241,0.18),transparent_55%),radial-gradient(ellipse_at_bottom,rgba(16,185,129,0.12),transparent_55%)]" />
@@ -54,8 +55,7 @@ export default function RootLayout({
 
         <footer className="mt-16 border-t border-white/10">
           <div className="mx-auto max-w-6xl px-4 py-10 text-sm text-white/60">
-            © {new Date().getFullYear()} Skolverktyg • Byggt för snabb hjälp,
-            tydlig design och SEO.
+            © {new Date().getFullYear()} Skolverktyg
           </div>
         </footer>
       </body>

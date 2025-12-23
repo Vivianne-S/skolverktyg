@@ -47,7 +47,7 @@ export default function Page() {
 
       {/* Annons */}
       <div className="mt-8">
-        <AdSlot />
+      <AdSlot className="mb-6" adSlot="1234567890" />
       </div>
 
       {/* ✅ QUIZ – MITTEN */}

@@ -76,7 +76,7 @@ export default function Page() {
       </p>
 
       <div className="mt-6">
-        <AdSlot label="Annons (topp)" />
+      <AdSlot className="mb-6" adSlot="1234567890" />
       </div>
 
       <div className="mt-6 rounded-3xl border border-white/10 bg-white/[0.04] p-6">
@@ -117,7 +117,7 @@ export default function Page() {
       </div>
 
       <div className="mt-6">
-        <AdSlot label="Annons (under verktyget)" />
+      <AdSlot className="mb-6" adSlot="1234567890" />
       </div>
     </main>
   );

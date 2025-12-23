@@ -52,7 +52,7 @@ export default function Page() {
       </Link>
 
       <div className="mt-8">
-        <AdSlot label="Annons (placeholder)" />
+      <AdSlot className="mb-6" adSlot="1234567890" />
       </div>
 
       <div className="mt-8">

@@ -53,7 +53,7 @@ export default function Page() {
 
       {/* Annons */}
       <div className="mb-8">
-        <AdSlot label="Annons (topp) (AdSense kommer här)" />
+      <AdSlot className="mb-6" adSlot="1234567890" />
       </div>
 
       {/* Quiz */}
@@ -61,7 +61,7 @@ export default function Page() {
 
       {/* Annons */}
       <div className="mt-8">
-        <AdSlot label="Annons (under quiz) (AdSense kommer här)" />
+      <AdSlot className="mb-6" adSlot="1234567890" />
       </div>
     </main>
   );

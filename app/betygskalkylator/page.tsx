@@ -37,7 +37,7 @@ export default function Page() {
       </p>
 
       <div className="mt-6">
-        <AdSlot label="Annons (topp) (AdSense kommer här)" />
+      <AdSlot className="mb-6" adSlot="1234567890" />
       </div>
 
       <div className="mt-6">
@@ -45,7 +45,7 @@ export default function Page() {
       </div>
 
       <div className="mt-6">
-        <AdSlot label="Annons (under kalkylator) (AdSense kommer här)" />
+      <AdSlot className="mb-6" adSlot="1234567890" />
       </div>
 
       <section className="mt-10">

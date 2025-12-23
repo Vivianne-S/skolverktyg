@@ -38,7 +38,7 @@ export default function Page() {
           Tips inför nationella
         </h2>
         <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-white/65">
-          <li>Träna “classroom English”: listen, read, circle, write, open/close.</li>
+          <li>Träna “classroom English”: read, circle, write, open/close.</li>
           <li>Ordförråd: färger, siffror, dagar, familj, skola, mat.</li>
           <li>Läs korta texter och svara: vem? vad? var? när?</li>
           <li>Dialoger: hello, how are you, thank you, please, sorry.</li>

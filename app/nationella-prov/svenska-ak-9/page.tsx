@@ -46,7 +46,7 @@ export default function Page() {
       </section>
 
       <div className="mt-8">
-        <AdSlot />
+  ´<AdSlot className="mb-6" adSlot="1234567890" />
       </div>
 
       <div className="mt-8">

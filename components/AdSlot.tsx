@@ -4,9 +4,8 @@ import { useEffect } from "react";
 
 type Props = {
   className?: string;
-  adSlot: string; 
-  adFormat?: "auto" | "rectangle" | "horizontal" | "vertical";
-  fullWidthResponsive?: boolean;
+  adSlot?: string; // ⬅️ NU OPTIONAL
+  label?: string;
 };
 
 const ADSENSE_CLIENT = "ca-pub-7517436157328119";
@@ -20,17 +19,30 @@ declare global {
 export default function AdSlot({
   className = "",
   adSlot,
-  adFormat = "auto",
-  fullWidthResponsive = true,
+  label,
 }: Props) {
   useEffect(() => {
+    if (!adSlot) return;
     try {
       (window.adsbygoogle = window.adsbygoogle || []).push({});
-    } catch {
-      // ignore (kan hända under dev/strict mode)
-    }
-  }, []);
+    } catch {}
+  }, [adSlot]);
 
+  // 🔹 FALLBACK / PLACEHOLDER
+  if (!adSlot) {
+    return (
+      <div
+        className={[
+          "rounded-2xl border border-white/10 bg-black/20 p-4 text-sm text-white/60",
+          className,
+        ].join(" ")}
+      >
+        {label ?? "Annons"}
+      </div>
+    );
+  }
+
+  // 🔹 RIKTIG ADSENSE
   return (
     <div
       className={[
@@ -43,8 +55,8 @@ export default function AdSlot({
         style={{ display: "block" }}
         data-ad-client={ADSENSE_CLIENT}
         data-ad-slot={adSlot}
-        data-ad-format={adFormat}
-        data-full-width-responsive={fullWidthResponsive ? "true" : "false"}
+        data-ad-format="auto"
+        data-full-width-responsive="true"
       />
     </div>
   );

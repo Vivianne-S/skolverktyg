@@ -1,2 +1,40 @@
-import Image from "./opengraph-image";
-export default Image;
+// app/twitter-image.tsx
+import { ImageResponse } from "next/og";
+
+export const runtime = "edge";
+
+export const size = {
+  width: 1200,
+  height: 675, 
+};
+
+export const contentType = "image/png";
+
+export default function TwitterImage() {
+  return new ImageResponse(
+    (
+      <div
+        style={{
+          width: "100%",
+          height: "100%",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          backgroundColor: "#070A12",
+          color: "white",
+          fontSize: 72,
+          fontWeight: 800,
+          letterSpacing: -1,
+        }}
+      >
+        <div style={{ textAlign: "center", padding: 60 }}>
+          <div style={{ opacity: 0.9 }}>Skolverktyg</div>
+          <div style={{ fontSize: 40, marginTop: 18, opacity: 0.7 }}>
+            Betyg • Skärmtid • Mattequiz
+          </div>
+        </div>
+      </div>
+    ),
+    size
+  );
+}

@@ -109,8 +109,8 @@ export default function MatteAk3Quiz() {
     [answers]
   );
 
-  const score = useMemo(() => {
-    return answers.reduce((acc, a, i) => {
+  const score = useMemo<number>(() => {
+    return answers.reduce<number>((acc, a, i) => {
       if (a === null) return acc;
       return acc + (a === QUESTIONS[i].correct ? 1 : 0);
     }, 0);

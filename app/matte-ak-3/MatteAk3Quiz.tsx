@@ -41,7 +41,7 @@ const QUESTIONS: Q[] = [
     q: "Vad är 6 · 4?",
     choices: ["10", "18", "24", "26"],
     correct: 2,
-    explain: "6 fyror: 4+4+4+4+4+4+4 = 24.",
+    explain: "6 fyror: 4+4+4+4+4+4 = 24.",
     skillTag: "Multiplikation",
   },
   {
@@ -89,8 +89,7 @@ const QUESTIONS: Q[] = [
     q: "Vilket är rätt: 3 hundratal + 2 tiotal + 9 ental?",
     choices: ["329", "239", "392", "923"],
     correct: 0,
-    explain:
-      "3 hundratal (300) + 2 tiotal (20) + 9 ental (9) = 329.",
+    explain: "3 hundratal (300) + 2 tiotal (20) + 9 ental (9) = 329.",
     skillTag: "Positionssystem",
   },
 ];
@@ -110,12 +109,18 @@ export default function MatteAk3Quiz() {
     [answers]
   );
 
-  // ✅ Typesäker score (Vercel/TS-proof)
-  const score = useMemo<number>(() => {
-    return answers.reduce<number>((acc, a, i) => {
-      if (a === null) return acc;
-      return acc + (a === QUESTIONS[i].correct ? 1 : 0);
-    }, 0);
+  const score = useMemo(() => {
+    let total = 0;
+  
+    for (let i = 0; i < answers.length; i++) {
+      const a = answers[i];
+      if (a === null) continue;
+      if (a === QUESTIONS[i].correct) {
+        total++;
+      }
+    }
+  
+    return total;
   }, [answers]);
 
   const pct = useMemo(() => {
@@ -156,12 +161,9 @@ export default function MatteAk3Quiz() {
 
   return (
     <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-6 shadow-[0_20px_80px_rgba(0,0,0,0.25)]">
-      {/* Header */}
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
-          <h2 className="text-xl font-semibold text-white/90">
-            Quiz: Matte åk 3
-          </h2>
+          <h2 className="text-xl font-semibold text-white/90">Quiz: Matte åk 3</h2>
           <p className="mt-1 text-sm text-white/60">
             Svara på frågorna och få resultat + facit direkt.
           </p>
@@ -172,7 +174,6 @@ export default function MatteAk3Quiz() {
         </div>
       </div>
 
-      {/* Progress bar */}
       <div className="mt-4">
         <div className="h-2 w-full overflow-hidden rounded-full border border-white/10 bg-white/[0.03]">
           <div
@@ -183,17 +184,13 @@ export default function MatteAk3Quiz() {
         <p className="mt-2 text-xs text-white/50">Framsteg: {progress}%</p>
       </div>
 
-      {/* Questions */}
       <div className="mt-6 space-y-5">
         {QUESTIONS.map((q, i) => {
           const selected = answers[i];
           const isAnswered = selected !== null;
 
           return (
-            <div
-              key={q.id}
-              className="rounded-2xl border border-white/10 bg-black/20 p-4"
-            >
+            <div key={q.id} className="rounded-2xl border border-white/10 bg-black/20 p-4">
               <div className="flex flex-wrap items-center justify-between gap-2">
                 <p className="font-medium text-white/90">
                   {i + 1}. {q.q}
@@ -209,10 +206,8 @@ export default function MatteAk3Quiz() {
                   const isSelected = selected === idx;
                   const isCorrect = idx === q.correct;
 
-                  const base =
-                    "rounded-2xl border px-4 py-3 text-left text-sm transition";
-                  const normal =
-                    "border-white/10 bg-white/[0.03] hover:bg-white/[0.06]";
+                  const base = "rounded-2xl border px-4 py-3 text-left text-sm transition";
+                  const normal = "border-white/10 bg-white/[0.03] hover:bg-white/[0.06]";
                   const selectedCls = "border-white/25 bg-white/[0.08]";
                   const wrongCls = "border-rose-400/40";
                   const correctCls = "border-emerald-400/40";
@@ -232,9 +227,6 @@ export default function MatteAk3Quiz() {
                       key={idx}
                       type="button"
                       onClick={() => {
-                        // (Valfritt) lås efter submit:
-                        // if (submitted) return;
-
                         const copy = [...answers];
                         copy[i] = idx;
                         setAnswers(copy);
@@ -254,9 +246,7 @@ export default function MatteAk3Quiz() {
                     {q.choices[q.correct]}
                   </p>
                   <p className="mt-1 text-sm text-white/60">
-                    <span className="font-semibold text-white/75">
-                      Förklaring:
-                    </span>{" "}
+                    <span className="font-semibold text-white/75">Förklaring:</span>{" "}
                     {q.explain}
                   </p>
                 </div>
@@ -266,7 +256,6 @@ export default function MatteAk3Quiz() {
         })}
       </div>
 
-      {/* Actions */}
       <div className="mt-6 flex flex-wrap items-center gap-2">
         <button
           type="button"
@@ -302,7 +291,6 @@ export default function MatteAk3Quiz() {
         )}
       </div>
 
-      {/* Tips block */}
       {submitted && (
         <div className="mt-6 rounded-2xl border border-white/10 bg-black/20 p-4">
           <p className="font-semibold text-white/90">Tips för nästa steg</p>
@@ -317,18 +305,14 @@ export default function MatteAk3Quiz() {
               ) : (
                 <ul className="mt-2 space-y-1 text-sm text-white/65">
                   {missesBySkill.slice(0, 4).map((m) => (
-                    <li key={m.skill}>
-                      • {m.skill} ({m.count} st)
-                    </li>
+                    <li key={m.skill}>• {m.skill} ({m.count} st)</li>
                   ))}
                 </ul>
               )}
             </div>
 
             <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-3">
-              <p className="text-sm font-semibold text-white/85">
-                Snabb plan (5 min/dag)
-              </p>
+              <p className="text-sm font-semibold text-white/85">Snabb plan (5 min/dag)</p>
               <ul className="mt-2 space-y-1 text-sm text-white/65">
                 <li>• 2 min: 10 additions-tal</li>
                 <li>• 2 min: 10 subtraktioner</li>

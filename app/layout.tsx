@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Script from "next/script";
 import { siteMeta } from "@/lib/seo";
+import MainNav from "@/components/MainNav";
 
 const meta = siteMeta();
 
@@ -31,39 +32,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </div>
 
         <header className="sticky top-0 z-50 border-b border-white/10 bg-[#070A12]/70 backdrop-blur">
-          <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
-            <Link href="/" className="group inline-flex items-center gap-2">
-              <span className="h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_24px_rgba(52,211,153,0.65)]" />
-              <span className="text-sm font-semibold tracking-wide text-white/90 group-hover:text-white">
-                Skolverktyg
-              </span>
-            </Link>
+  <div className="mx-auto max-w-6xl px-4">
+    <div className="flex items-center justify-between py-4">
+      <Link href="/" className="group inline-flex items-center gap-2">
+        <span className="h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_24px_rgba(52,211,153,0.65)]" />
+        <span className="text-sm font-semibold tracking-wide text-white/90 group-hover:text-white">
+          Skolverktyg
+        </span>
+      </Link>
+    </div>
 
-            <nav className="flex items-center gap-1 text-sm text-white/70">
-              <Link className="rounded-full px-3 py-2 hover:bg-white/5 hover:text-white" href="/betygskalkylator">
-                Betyg
-              </Link>
-              <Link className="rounded-full px-3 py-2 hover:bg-white/5 hover:text-white" href="/skarmtid">
-                Skärmtid
-              </Link>
-              <Link className="rounded-full px-3 py-2 hover:bg-white/5 hover:text-white" href="/matte-ak-3">
-                Matte åk 3
-              </Link>
-              <Link className="rounded-full px-3 py-2 hover:bg-white/5 hover:text-white" href="/matte-ak-6">
-                Matte åk 6
-              </Link>
-              <Link className="rounded-full px-3 py-2 hover:bg-white/5 hover:text-white" href="/matte-ak-9">
-                Matte åk 9
-              </Link>
-              <Link className="rounded-full px-3 py-2 hover:bg-white/5 hover:text-white" href="/nationella-prov">
-                Nationella prov
-              </Link>
-              <Link className="rounded-full px-3 py-2 hover:bg-white/5 hover:text-white" href="/gymnasieval">
-                Gymnasieval
-              </Link>
-            </nav>
-          </div>
-        </header>
+    <MainNav />
+  </div>
+</header>
 
         <main className="mx-auto max-w-6xl px-4 py-10">{children}</main>
 

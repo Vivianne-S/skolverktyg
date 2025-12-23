@@ -12,6 +12,9 @@
   --font-mono: var(--font-geist-mono);
 }
 
+.scrollbar-none::-webkit-scrollbar { display: none; }
+.scrollbar-none { -ms-overflow-style: none; scrollbar-width: none; }
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;

@@ -6,7 +6,7 @@ import NationellaProvSvenskaAk6Quiz from "./NationellaProvSvenskaAk6Quiz";
 export const metadata: Metadata = {
   title: "Nationella prov svenska åk 6 – öva med quiz + facit",
   description:
-    "Öva inför nationella prov i svenska för åk 6. Quiz med grammatik, ordkunskap, texttyper och källkritik – facit direkt.",
+    "Öva inför nationella prov i svenska för åk 6. Quiz med läsförståelse, grammatik, ordkunskap, texttyper och källkritik – facit direkt.",
 };
 
 export default function Page() {
@@ -19,8 +19,9 @@ export default function Page() {
             Nationella prov – svenska åk 6
           </h1>
           <p className="mt-3 text-white/70">
-            Träna vanliga moment inför nationella: ordklasser, skiljetecken,
-            ordkunskap (synonymer/antonymer), texttyper och enkel källkritik.
+            Träna på läsförståelse med berättande text, faktatext och argumenterande
+            text – plus språk (ordkunskap, ordklasser, skiljetecken) och enkel
+            källkritik.
           </p>
         </div>
 
@@ -38,17 +39,32 @@ export default function Page() {
           Tips inför nationella
         </h2>
         <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-white/65">
-          <li>Ordklasser: lär dig känna igen substantiv, verb och adjektiv.</li>
-          <li>Skiljetecken: punkt i slutet, komma i uppräkningar.</li>
-          <li>Ord: träna synonymer/antonymer och läs meningar noga.</li>
-          <li>Texttyper: fundera på syfte – berätta, informera eller instruera.</li>
-          <li>Källkritik: välj hellre lärobok/myndighet än “någon sa…”.</li>
+          <li>
+            <span className="font-semibold text-white/85">Läsförståelse:</span>{" "}
+            läs frågan först ibland, leta sedan stöd i texten.
+          </li>
+          <li>
+            <span className="font-semibold text-white/85">Ord i text:</span>{" "}
+            använd sammanhanget (meningen före/efter) för att lista ut betydelsen.
+          </li>
+          <li>
+            <span className="font-semibold text-white/85">Texttyp:</span>{" "}
+            fråga dig: vill texten berätta, informera eller övertyga?
+          </li>
+          <li>
+            <span className="font-semibold text-white/85">Skiljetecken:</span>{" "}
+            punkt avslutar mening, komma används ofta i uppräkningar.
+          </li>
+          <li>
+            <span className="font-semibold text-white/85">Källkritik:</span>{" "}
+            jämför källor och lita mer på lärobok/myndighet än rykten.
+          </li>
         </ul>
       </section>
 
       {/* Annons */}
       <div className="mt-8">
-        <AdSlot />
+        <AdSlot label="Annons (placeholder) – AdSense kommer här" />
       </div>
 
       {/* Quiz */}

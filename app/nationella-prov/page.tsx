@@ -46,8 +46,13 @@ const sections = [
         href: "/nationella-prov/svenska-ak-6",
         tag: "Åk 6",
       },
-      // 🔜 redo att fyllas på:
-      // svenska-ak-9
+      {
+        title: "Svenska åk 9 – öva inför nationella",
+        desc: "Läsförståelse, texttyper, argumentation, källkritik och språkriktighet.",
+        href: "/nationella-prov/svenska-ak-9",
+        tag: "Åk 9",
+      },
+   
     ],
   },
   // 🔜 Engelska kommer sen

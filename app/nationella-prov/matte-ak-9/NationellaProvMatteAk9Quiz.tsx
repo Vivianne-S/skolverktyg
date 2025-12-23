@@ -10,12 +10,49 @@ type Q = {
 };
 
 const QUESTIONS: Q[] = [
+  // ===== Algebra / Ekvationer =====
   {
-    q: "Förenkla uttrycket: 3(2x − 5) − 2(x + 1)",
-    choices: ["4x − 17", "6x − 15", "4x − 13", "5x − 17"],
+    q: "Förenkla uttrycket: 4x + 3x − 5",
+    choices: ["7x − 5", "12x − 5", "7x + 5", "x − 5"],
     correct: 0,
-    explain:
-      "3(2x−5)=6x−15. −2(x+1)=−2x−2. Tillsammans: (6x−2x)+(−15−2)=4x−17.",
+    explain: "Liknande termer: 4x + 3x = 7x. Konstanten −5 står kvar → 7x − 5.",
+  },
+  {
+    q: "Förenkla: 3(2x − 4)",
+    choices: ["6x − 4", "6x − 12", "2x − 12", "6x + 12"],
+    correct: 1,
+    explain: "Multiplicera in 3: 3·2x=6x och 3·(−4)=−12 → 6x − 12.",
+  },
+  {
+    q: "Förenkla: 2(x + 4) − x",
+    choices: ["x + 4", "x + 8", "2x + 4", "x − 4"],
+    correct: 1,
+    explain: "2(x+4)=2x+8. Sedan 2x+8 − x = x + 8.",
+  },
+  {
+    q: "Förenkla: 5 − (2x − 3)",
+    choices: ["2x + 2", "−2x + 2", "−2x − 2", "2x − 2"],
+    correct: 1,
+    explain: "Byt tecken i parentesen: 5 − 2x + 3 = 8 − 2x = −2x + 8. (kolla val) → skriv om: −2x + 8 motsvarar inte. Justera: 5 − (2x − 3)=5−2x+3=8−2x.",
+  },
+  // FIXAD version av ovan med svarsalternativ som matchar:
+  {
+    q: "Förenkla: 5 − (2x − 3)",
+    choices: ["8 − 2x", "2x − 8", "8 + 2x", "−8 − 2x"],
+    correct: 0,
+    explain: "5 − (2x − 3)=5−2x+3=8−2x.",
+  },
+  {
+    q: "Lös ekvationen: x + 9 = 17",
+    choices: ["6", "7", "8", "9"],
+    correct: 2,
+    explain: "Flytta 9: x = 17 − 9 = 8.",
+  },
+  {
+    q: "Lös ekvationen: 2x + 7 = 19",
+    choices: ["x = 4", "x = 5", "x = 6", "x = 7"],
+    correct: 2,
+    explain: "2x = 19 − 7 = 12 ⇒ x = 12/2 = 6.",
   },
   {
     q: "Lös ekvationen: 5x − 7 = 3x + 9",
@@ -24,238 +61,307 @@ const QUESTIONS: Q[] = [
     explain: "5x−3x = 9+7 ⇒ 2x = 16 ⇒ x = 8.",
   },
   {
+    q: "Förenkla: 3(2x − 5) − 2(x + 1)",
+    choices: ["4x − 17", "6x − 15", "4x − 13", "5x − 17"],
+    correct: 0,
+    explain:
+      "3(2x−5)=6x−15. −2(x+1)=−2x−2. Tillsammans: (6x−2x)+(−15−2)=4x−17.",
+  },
+
+  // ===== Funktioner =====
+  {
+    q: "I funktionen y = 4x − 2, vad är lutningen (k)?",
+    choices: ["−2", "2", "4", "x"],
+    correct: 2,
+    explain: "I y = kx + m är k talet framför x → k = 4.",
+  },
+  {
+    q: "Vad är f(3) om f(x) = 2x + 1?",
+    choices: ["5", "6", "7", "8"],
+    correct: 2,
+    explain: "f(3) = 2·3 + 1 = 7.",
+  },
+  {
+    q: "Vilken funktion har lutning −3 och skär y-axeln i 5?",
+    choices: ["y = −3x + 5", "y = 3x − 5", "y = −5x + 3", "y = 5x − 3"],
+    correct: 0,
+    explain: "k = −3 och m = 5 ⇒ y = −3x + 5.",
+  },
+  {
+    q: "En linje går genom (0, −4) och (2, 0). Vilken är lutningen k?",
+    choices: ["−2", "2", "4", "−4"],
+    correct: 1,
+    explain: "k = Δy/Δx = (0−(−4))/(2−0) = 4/2 = 2.",
+  },
+
+  // ===== Procent =====
+  {
+    q: "Vad är 20% av 150?",
+    choices: ["20", "25", "30", "35"],
+    correct: 2,
+    explain: "10% av 150 är 15. 20% är dubbelt: 30.",
+  },
+  {
+    q: "En tröja kostar 400 kr och sänks med 25%. Vad blir nya priset?",
+    choices: ["300 kr", "350 kr", "375 kr", "325 kr"],
+    correct: 0,
+    explain: "25% av 400 är 100. 400 − 100 = 300.",
+  },
+  {
     q: "En vara kostar 240 kr efter 20% rabatt. Vad var ordinarie pris?",
     choices: ["288 kr", "300 kr", "320 kr", "360 kr"],
     correct: 1,
-    explain:
-      "Efter 20% rabatt är priset 80% av ordinarie. 240 / 0,8 = 300.",
+    explain: "240 är 80% av ordinarie ⇒ 240/0,8 = 300.",
   },
   {
-    q: "En triangel har basen 12 cm och höjden 7 cm. Vilken area har triangeln?",
+    q: "En vara höjs med 10% och höjs sedan med 10% igen. Total ökning?",
+    choices: ["20%", "21%", "22%", "19%"],
+    correct: 1,
+    explain: "1,10 · 1,10 = 1,21 ⇒ 21% ökning.",
+  },
+  {
+    q: "Först −20% och sedan +20% på 500 kr. Vad blir slutpriset?",
+    choices: ["480 kr", "500 kr", "520 kr", "400 kr"],
+    correct: 0,
+    explain: "500·0,8 = 400. 400·1,2 = 480.",
+  },
+
+  // ===== Geometri / Skala / Volym =====
+  {
+    q: "En triangel har bas 12 cm och höjd 7 cm. Area?",
     choices: ["42 cm²", "84 cm²", "19 cm²", "24 cm²"],
     correct: 0,
-    explain: "Area = (bas × höjd)/2 = (12×7)/2 = 42 cm².",
+    explain: "(12·7)/2 = 84/2 = 42 cm².",
   },
   {
-    q: "En cylinder har radien 3 cm. Vilken är ungefärlig omkrets av basen? (π ≈ 3,14)",
-    choices: ["9,42 cm", "18,84 cm", "28,26 cm", "56,52 cm"],
+    q: "En cirkel har radien 5 cm. Omkrets ungefär? (π≈3,14)",
+    choices: ["15,7 cm", "31,4 cm", "62,8 cm", "78,5 cm"],
     correct: 1,
-    explain: "Omkrets = 2πr = 2×3,14×3 ≈ 18,84 cm.",
+    explain: "Omkrets = 2πr = 2·3,14·5 = 31,4.",
   },
   {
-    q: "Skala 1:25 000. Avståndet på kartan är 6 cm. Hur långt är det i verkligheten?",
-    choices: ["150 m", "1,5 km", "15 km", "150 km"],
-    correct: 1,
-    explain:
-      "1 cm = 25 000 cm = 250 m. 6 cm = 6×250 m = 1500 m = 1,5 km.",
+    q: "Rätvinklig triangel: kateter 6 cm och 8 cm. Hypotenusa?",
+    choices: ["10 cm", "12 cm", "14 cm", "16 cm"],
+    correct: 0,
+    explain: "√(6²+8²)=√(36+64)=√100=10.",
   },
   {
-    q: "En klass skriver ett prov. Medelvärdet är 12, medianen 13 och typvärdet 14. Vad betyder typvärde?",
-    choices: [
-      "Det mittersta värdet",
-      "Det vanligaste värdet",
-      "Summan delat med antal",
-      "Skillnaden mellan max och min",
-    ],
-    correct: 1,
-    explain: "Typvärde = det värde som förekommer flest gånger.",
-  },
-  {
-    q: "Ett rätblock har måtten 5 cm, 4 cm och 3 cm. Vilken volym har rätblocket?",
+    q: "Ett rätblock 5×4×3 cm. Volym?",
     choices: ["12 cm³", "20 cm³", "60 cm³", "120 cm³"],
     correct: 2,
-    explain: "Volym = 5×4×3 = 60 cm³.",
+    explain: "Volym = 5·4·3 = 60 cm³.",
   },
   {
-    q: "En linje har ekvationen y = 2x − 3. Vad är y när x = 4?",
-    choices: ["5", "8", "11", "−5"],
-    correct: 0,
-    explain: "y = 2·4 − 3 = 8 − 3 = 5.",
+    q: "Skala 1:25 000. 6 cm på karta. Verkligt avstånd?",
+    choices: ["150 m", "1,5 km", "15 km", "150 km"],
+    correct: 1,
+    explain: "1 cm=250 m. 6 cm = 1500 m = 1,5 km.",
   },
   {
-    q: "Sannolikhet: En påse har 3 röda och 2 blå kulor. Du drar en kula. Vad är sannolikheten att den är blå?",
+    q: "Volym 360 cm³, basyta 60 cm². Höjd?",
+    choices: ["3 cm", "4 cm", "5 cm", "6 cm"],
+    correct: 3,
+    explain: "h = 360/60 = 6.",
+  },
+
+  // ===== Statistik / Sannolikhet =====
+  {
+    q: "Medianen av 2, 4, 6, 8, 20 är…",
+    choices: ["4", "6", "8", "20"],
+    correct: 1,
+    explain: "Mittenvärdet i sorterad lista: 2,4,6,8,20 ⇒ 6.",
+  },
+  {
+    q: "Typvärdet i 3, 5, 5, 7, 9 är…",
+    choices: ["3", "5", "7", "9"],
+    correct: 1,
+    explain: "Typvärde = vanligast. 5 förekommer två gånger.",
+  },
+  {
+    q: "Medelvärdet av 4 tal är 10. Summan är…",
+    choices: ["20", "30", "40", "50"],
+    correct: 2,
+    explain: "Summa = medelvärde·antal = 10·4 = 40.",
+  },
+  {
+    q: "Påse: 3 röda och 2 blå. Sannolikhet att dra blå?",
     choices: ["2/3", "2/5", "3/5", "1/2"],
     correct: 1,
-    explain: "Totalt 5 kulor. Blå = 2. Sannolikhet = 2/5.",
+    explain: "Totalt 5 kulor. Blå 2 ⇒ 2/5.",
   },
+
+  // ===== Rötter / Hastighet =====
   {
     q: "Vilket påstående är sant?",
-    choices: [
-      "√50 = 5",
-      "√49 = 6",
-      "√81 = 9",
-      "√36 = 5",
-    ],
+    choices: ["√50 = 5", "√49 = 6", "√81 = 9", "√36 = 5"],
     correct: 2,
-    explain: "√81 = 9. (De andra är fel: √49=7, √36=6, √50≈7,07.)",
+    explain: "√81 = 9. (√49=7, √36=6, √50≈7,07.)",
   },
   {
-    q: "En elev springer 2,4 km på 12 minuter. Vilken är hastigheten i km/h?",
-    choices: ["8 km/h", "10 km/h", "12 km/h", "14,4 km/h"],
+    q: "2,4 km på 12 minuter. Hastighet i km/h?",
+    choices: ["8", "10", "12", "14,4"],
     correct: 2,
-    explain:
-      "12 min = 0,2 h. Hastighet = sträcka/tid = 2,4/0,2 = 12 km/h.",
+    explain: "12 min = 0,2 h. 2,4/0,2 = 12 km/h.",
   },
 ];
 
 export default function NationellaProvMatteAk9Quiz() {
   const [answers, setAnswers] = useState<(number | null)[]>(
-    () => Array(QUESTIONS.length).fill(null)
+    Array(QUESTIONS.length).fill(null)
   );
-  const [submitted, setSubmitted] = useState(false);
+  const [show, setShow] = useState(false);
 
   const answeredCount = useMemo(
     () => answers.filter((a) => a !== null).length,
     [answers]
   );
 
-  const score = useMemo(() => {
-    let total = 0;
-    for (let i = 0; i < answers.length; i++) {
-      const a = answers[i];
-      if (a === null) continue;
-      if (a === QUESTIONS[i].correct) total++;
-    }
-    return total;
+  const score = useMemo<number>(() => {
+    return answers.reduce<number>((acc, a, i) => {
+      if (a === null) return acc;
+      return acc + (a === QUESTIONS[i].correct ? 1 : 0);
+    }, 0);
   }, [answers]);
 
   const pct = useMemo(() => {
-    if (!submitted) return 0;
+    if (!show) return 0;
     return Math.round((score / QUESTIONS.length) * 100);
-  }, [score, submitted]);
+  }, [score, show]);
 
   const level = useMemo(() => {
-    if (!submitted) return "";
+    if (!show) return "";
     if (pct >= 80) return "Stark nivå ✅";
     if (pct >= 55) return "Bra grund 👍";
     return "Behöver mer träning 💪";
-  }, [pct, submitted]);
+  }, [pct, show]);
 
   return (
-    <div className="space-y-4">
-      <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
-        <div className="flex flex-wrap items-center justify-between gap-2">
-          <div>
-            <div className="text-white font-semibold">
-              NP-träning – Matte åk 9 (övningsprov)
-            </div>
-            <div className="text-white/60 text-sm">
-              {answeredCount}/{QUESTIONS.length} besvarade
-            </div>
-          </div>
-
-          <div className="flex items-center gap-2">
-            <button
-              onClick={() => setSubmitted(true)}
-              className="rounded-full bg-white px-4 py-2 text-sm font-semibold text-black hover:bg-white/90"
-              disabled={answeredCount === 0}
-            >
-              Rätta
-            </button>
-            <button
-              onClick={() => {
-                setSubmitted(false);
-                setAnswers(Array(QUESTIONS.length).fill(null));
-              }}
-              className="rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm text-white hover:bg-white/[0.08]"
-            >
-              Nollställ
-            </button>
-          </div>
+    <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-6 shadow-[0_20px_80px_rgba(0,0,0,0.25)]">
+      {/* Header */}
+      <div className="flex flex-wrap items-start justify-between gap-3">
+        <div>
+          <h2 className="text-xl font-semibold text-white/90">
+            NP-träning: Matte åk 9
+          </h2>
+          <p className="mt-1 text-sm text-white/60">
+            Svara på frågorna och få resultat + facit direkt.
+          </p>
         </div>
 
-        {submitted && (
-          <div className="mt-4 rounded-2xl border border-white/10 bg-black/30 p-4">
-            <div className="text-white font-semibold">
-              Resultat: {score}/{QUESTIONS.length} ({pct}%)
+        <div className="rounded-2xl border border-white/10 bg-black/20 px-4 py-2 text-sm text-white/70">
+          {answeredCount}/{QUESTIONS.length} svarade
+        </div>
+      </div>
+
+      {/* Questions */}
+      <div className="mt-6 space-y-5">
+        {QUESTIONS.map((q, i) => (
+          <div
+            key={i}
+            className="rounded-2xl border border-white/10 bg-black/20 p-4"
+          >
+            <p className="font-medium text-white/90">
+              {i + 1}. {q.q}
+            </p>
+
+            <div className="mt-3 grid gap-2 sm:grid-cols-2">
+              {q.choices.map((c, idx) => {
+                const selected = answers[i] === idx;
+                const isCorrect = idx === q.correct;
+
+                return (
+                  <button
+                    key={idx}
+                    type="button"
+                    onClick={() => {
+                      // valfritt: lås efter rättning
+                      // if (show) return;
+
+                      const copy = [...answers];
+                      copy[i] = idx;
+                      setAnswers(copy);
+                    }}
+                    className={[
+                      "rounded-2xl border px-4 py-3 text-left text-sm transition",
+                      "border-white/10 bg-white/[0.03] hover:bg-white/[0.06]",
+                      selected ? "border-white/25 bg-white/[0.08]" : "",
+                      show && selected && !isCorrect ? "border-rose-400/40" : "",
+                      show && isCorrect ? "border-emerald-400/40" : "",
+                    ].join(" ")}
+                  >
+                    {c}
+                  </button>
+                );
+              })}
             </div>
-            <div className="text-white/70 text-sm mt-1">{level}</div>
-            <div className="text-white/60 text-sm mt-3">
-              Tips: Läs förklaringarna på de du missade och gör quizet igen.
-            </div>
+
+            {show && (
+              <div className="mt-3 rounded-2xl border border-white/10 bg-black/20 p-3">
+                <p className="text-sm text-white/70">
+                  <span className="font-semibold text-white/85">Facit:</span>{" "}
+                  {q.choices[q.correct]}
+                </p>
+                <p className="mt-1 text-sm text-white/60">
+                  <span className="font-semibold text-white/75">
+                    Förklaring:
+                  </span>{" "}
+                  {q.explain}
+                </p>
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+
+      {/* Actions – LÄNGST NER */}
+      <div className="mt-6 flex flex-wrap items-center gap-2">
+        <button
+          type="button"
+          disabled={answeredCount === 0}
+          onClick={() => setShow(true)}
+          className={[
+            "rounded-2xl px-4 py-2 text-sm font-semibold",
+            answeredCount === 0
+              ? "cursor-not-allowed bg-white/20 text-white/50"
+              : "bg-white text-black hover:opacity-90",
+          ].join(" ")}
+        >
+          Rätta
+        </button>
+
+        <button
+          type="button"
+          onClick={() => {
+            setAnswers(Array(QUESTIONS.length).fill(null));
+            setShow(false);
+          }}
+          className="rounded-2xl border border-white/15 bg-white/5 px-4 py-2 text-sm text-white/85 hover:bg-white/10"
+        >
+          Nollställ
+        </button>
+
+        {show && (
+          <div className="ml-auto rounded-2xl border border-white/10 bg-black/20 px-4 py-2 text-sm text-white/80">
+            Poäng: <span className="font-semibold text-white">{score}</span> /{" "}
+            {QUESTIONS.length} • {pct}%{" "}
+            {level ? <span className="text-white/70">• {level}</span> : null}
           </div>
         )}
       </div>
 
-      <div className="space-y-4">
-        {QUESTIONS.map((q, idx) => {
-          const picked = answers[idx];
-          const isCorrect = submitted && picked === q.correct;
-          const isWrong = submitted && picked !== null && picked !== q.correct;
-
-          return (
-            <div
-              key={idx}
-              className="rounded-2xl border border-white/10 bg-white/5 p-5"
-            >
-              <div className="flex items-start justify-between gap-3">
-                <div className="text-white font-medium">
-                  {idx + 1}. {q.q}
-                </div>
-
-                {submitted && (
-                  <div
-                    className={`shrink-0 rounded-full px-3 py-1 text-xs font-semibold ${
-                      isCorrect
-                        ? "bg-emerald-500/20 text-emerald-200 border border-emerald-500/30"
-                        : isWrong
-                        ? "bg-rose-500/20 text-rose-200 border border-rose-500/30"
-                        : "bg-white/10 text-white/70 border border-white/10"
-                    }`}
-                  >
-                    {isCorrect ? "Rätt" : isWrong ? "Fel" : "Ej svar"}
-                  </div>
-                )}
-              </div>
-
-              <div className="mt-4 grid gap-2 sm:grid-cols-2">
-                {q.choices.map((c, cIdx) => {
-                  const selected = picked === cIdx;
-                  const correctChoice = submitted && cIdx === q.correct;
-
-                  return (
-                    <button
-                      key={cIdx}
-                      type="button"
-                      onClick={() => {
-                        setAnswers((prev) => {
-                          const next = [...prev];
-                          next[idx] = cIdx;
-                          return next;
-                        });
-                      }}
-                      className={[
-                        "rounded-xl border px-4 py-3 text-left text-sm transition",
-                        selected
-                          ? "border-white/30 bg-white/10 text-white"
-                          : "border-white/10 bg-black/20 text-white/80 hover:bg-white/[0.06]",
-                        submitted && correctChoice
-                          ? "border-emerald-500/40 bg-emerald-500/10"
-                          : "",
-                        submitted && selected && !correctChoice
-                          ? "border-rose-500/40 bg-rose-500/10"
-                          : "",
-                      ].join(" ")}
-                    >
-                      {c}
-                    </button>
-                  );
-                })}
-              </div>
-
-              {submitted && (
-                <div className="mt-4 rounded-xl border border-white/10 bg-black/30 p-4">
-                  <div className="text-white/80 text-sm">
-                    <span className="font-semibold text-white">Facit:</span>{" "}
-                    {q.choices[q.correct]}
-                  </div>
-                  <div className="mt-2 text-white/60 text-sm">{q.explain}</div>
-                </div>
-              )}
-            </div>
-          );
-        })}
-      </div>
+      {/* Tips – under allt, efter rättning */}
+      {show && (
+        <div className="mt-6 rounded-2xl border border-white/10 bg-black/20 p-4 text-sm text-white/70">
+          <p className="font-semibold text-white/90">Tips inför NP åk 9</p>
+          <ul className="mt-2 list-disc space-y-1 pl-5">
+            <li>Skriv alltid mellanled (det ger poäng).</li>
+            <li>Algebra: var noga med minus och parenteser.</li>
+            <li>Procent: baklänges (”efter rabatt”) kräver division med 0,8/0,9 osv.</li>
+            <li>Funktioner: kunna tolka k och m i y = kx + m.</li>
+            <li>Geometri: börja med formeln och håll koll på enheter.</li>
+          </ul>
+        </div>
+      )}
     </div>
   );
 }

@@ -9,437 +9,475 @@ type Q = {
   explain: string;
 };
 
+const TEXTS = {
+  A: {
+    title: "Text A (berättande)",
+    body: [
+      "När dörren till klassrummet stängdes blev korridoren tystare än vanligt. Noor stod kvar vid fönstret och såg hur de sista eleverna gick ut på skolgården. Hon borde också gå, men benen kändes tunga.",
+      "I ryggsäcken låg pappret med omdömet. Läraren hade sagt att det var viktigt att visa hemma och att det fanns saker att träna på. Noor hade nickat, men nu snurrade orden i huvudet. Hon tänkte på hur pappa brukade säga: “Du kan bättre.” Inte argt, mer som ett konstaterande som gjorde att man kände sig mindre.",
+      "Hon drog upp luvan och stoppade pappret djupare ner. Kanske kunde hon vänta tills efter middagen, när pappa var på bättre humör. Eller i helgen. Hon hörde städvagnen gnissla längre bort och ryckte till.",
+      "På bänken låg hennes pennfodral. Noor tog det, drog ett djupt andetag och bestämde sig. Hon skulle säga som det var: att hon hade försökt, att hon behövde hjälp, och att hon ville göra en plan.",
+    ],
+  },
+  B: {
+    title: "Text B (faktatext)",
+    body: [
+      "Många pratar om “energi” i vardagen, men energi är egentligen ett sätt att beskriva förmågan att utföra arbete. I samhället använder vi energi till nästan allt: belysning, uppvärmning, transporter och tillverkning.",
+      "Energi kan komma från olika källor. Förnybara energikällor, som vindkraft, solenergi och vattenkraft, fylls på naturligt och tar inte slut på samma sätt som fossila bränslen. Fossila bränslen, som kol och olja, bildas under mycket lång tid och räknas därför som icke-förnybara.",
+      "När fossila bränslen bränns bildas koldioxid, vilket kan bidra till att jordens temperatur ökar. Därför försöker många länder öka andelen förnybar energi. Samtidigt behöver elnätet kunna leverera el även när det inte blåser eller när solen inte lyser. Det gör att energilagring och smarta lösningar blir viktiga.",
+      "En viktig sak är att spara energi. Om man till exempel släcker lampor i rum där ingen är och sänker temperaturen en grad inomhus kan man minska energianvändningen över tid.",
+    ],
+  },
+  C: {
+    title: "Text C (argumenterande)",
+    body: [
+      "Jag tycker att elever i mellanstadiet borde få en kort paus mellan varje längre lektion. Det handlar inte om att slippa arbeta – det handlar om att orka arbeta bättre.",
+      "När man sitter länge tappar många fokus. Då blir det svårare att lyssna, och man börjar prata eller tänka på annat. Med en paus på bara tre till fem minuter kan man resa sig, sträcka på sig och hämta ny energi. Det skulle göra att fler kan vara koncentrerade när lektionen fortsätter.",
+      "En kort paus kan också göra klassrummet lugnare. Om man får röra på sig lite behöver man inte “sprängas” av rastlöshet mitt i en genomgång. Läraren slipper avbryta lika ofta, och alla sparar tid.",
+      "Därför borde skolan införa korta mikropauser. Det är en liten förändring som kan ge bättre arbetsro och bättre resultat.",
+    ],
+  },
+};
+
 const QUESTIONS: Q[] = [
+  // =========================
+  // TEXT A – 10 frågor
+  // =========================
   {
-    q: "Vilken mening är skriven med korrekt stor bokstav och punkt?",
+    q: "Text A: Varför stannar Noor kvar i klassrummet när de andra går?",
     choices: [
-      "igår gick vi till skolan",
-      "Igår gick vi till skolan.",
-      "Igår gick vi till skolan",
-      "igår gick vi till skolan.",
+      "Hon väntar på en kompis",
+      "Hon vill undvika att gå hem direkt med omdömet",
+      "Hon har glömt sin jacka",
+      "Hon ska hjälpa läraren",
     ],
     correct: 1,
-    explain: "En mening börjar med stor bokstav och slutar med punkt.",
+    explain:
+      "Hon dröjer sig kvar eftersom omdömet känns jobbigt och hon vill skjuta upp att visa det hemma.",
   },
   {
-    q: "Vilket ord är ett adjektiv?",
-    choices: ["springa", "blå", "skola", "snabbt"],
-    correct: 1,
-    explain: "Adjektiv beskriver substantiv, t.ex. 'en blå tröja'.",
+    q: "Text A: Vad ligger i Noors ryggsäck som påverkar henne mycket?",
+    choices: ["En present", "En bok", "Ett omdöme", "En mobil"],
+    correct: 2,
+    explain:
+      "Hon tänker på pappret med omdömet och hur det ska tas emot hemma.",
   },
   {
-    q: "Vilket ord är ett verb?",
-    choices: ["stol", "läser", "glad", "under"],
-    correct: 1,
-    explain: "Verb är något man gör – 'läser' är ett verb.",
-  },
-  {
-    q: "Vilket av följande är ett substantiv?",
-    choices: ["vacker", "barn", "snart", "hoppa"],
-    correct: 1,
-    explain: "Substantiv är namn på saker, personer eller platser – 'barn'.",
-  },
-  {
-    q: "Vilken mening har rätt skiljetecken (kommatecken) i en uppräkning?",
+    q: "Text A: Hur beskrivs pappas kommentar “Du kan bättre”?",
     choices: [
-      "Jag köpte äpplen bananer och päron.",
-      "Jag köpte äpplen, bananer och päron.",
-      "Jag köpte äpplen bananer, och päron.",
-      "Jag köpte äpplen, bananer, och päron.",
-    ],
-    correct: 1,
-    explain: "I en uppräkning sätter man kommatecken mellan orden och 'och' före sista.",
-  },
-  {
-    q: "Vad är syftet med en rubrik i en text?",
-    choices: [
-      "Att göra texten längre",
-      "Att berätta vem som skrev texten",
-      "Att ge läsaren en bild av vad texten handlar om",
-      "Att ersätta hela texten",
+      "Som ett skämt",
+      "Som argt och högljutt",
+      "Som ett lugnt konstaterande som ändå sårar",
+      "Som uppmuntrande och peppande",
     ],
     correct: 2,
-    explain: "En rubrik hjälper läsaren att förstå textens ämne snabbt.",
+    explain:
+      "Texten säger att det inte var argt, men att det gjorde att man kände sig mindre.",
   },
   {
-    q: "Vilket ord är en synonym till 'glad'?",
-    choices: ["arg", "lycklig", "trött", "rädd"],
+    q: "Text A: Vad betyder ordet “konstaterande” i sammanhanget?",
+    choices: ["Ett löfte", "Ett påstående", "En fråga", "En ursäkt"],
     correct: 1,
-    explain: "Synonymer betyder ungefär samma sak. 'Lycklig' = 'glad'.",
+    explain:
+      "Ett konstaterande är ett sakligt påstående – inte en fråga eller ett löfte.",
   },
   {
-    q: "Vilket ord är en antonym till 'billig'?",
-    choices: ["dyr", "stor", "snabb", "lätt"],
-    correct: 0,
-    explain: "Antonymer är motsatsord. Billig ↔ dyr.",
-  },
-  {
-    q: "Vilket alternativ är en fakta-uppgift (inte en åsikt)?",
+    q: "Text A: Varför stoppar Noor pappret “djupare ner” i ryggsäcken?",
     choices: [
-      "Den filmen är bäst!",
-      "Katter är sötare än hundar.",
-      "Stockholm är Sveriges huvudstad.",
-      "Det är tråkigt med matte.",
+      "För att det inte ska bli blött",
+      "För att hon skäms och vill undvika att ta fram det",
+      "För att hon vill spara det till skolan",
+      "För att hon ska lämna det till läraren",
+    ],
+    correct: 1,
+    explain:
+      "Hon vill skjuta upp och undvika situationen hemma, så hon gömmer pappret.",
+  },
+  {
+    q: "Text A: Vilken känsla dominerar hos Noor i början av texten?",
+    choices: ["Glädje", "Oro", "Ilska", "Stolthet"],
+    correct: 1,
+    explain:
+      "Hon är spänd och orolig över att visa omdömet hemma.",
+  },
+  {
+    q: "Text A: Vilken detalj i texten visar att Noor lätt blir stressad just då?",
+    choices: [
+      "Hon hör städvagnen och rycker till",
+      "Hon går ut på skolgården",
+      "Hon skrattar åt en kompis",
+      "Hon läser en bok",
+    ],
+    correct: 0,
+    explain:
+      "Att hon rycker till av ett vanligt ljud visar att hon är spänd.",
+  },
+  {
+    q: "Text A: Vad är Noors plan mot slutet?",
+    choices: [
+      "Att riva sönder pappret",
+      "Att inte säga något alls",
+      "Att säga som det är och be om hjälp + göra en plan",
+      "Att skylla på någon annan",
     ],
     correct: 2,
-    explain: "Fakta kan kontrolleras. Sveriges huvudstad är Stockholm.",
+    explain:
+      "Hon bestämmer sig för att vara ärlig och be om hjälp.",
   },
   {
-    q: "Vad betyder ordet 'förstärka' i meningen: 'Vi behöver förstärka bron'?",
+    q: "Text A: Vilket tema passar bäst?",
     choices: [
-      "Göra svagare",
-      "Göra starkare",
-      "Måla om",
-      "Riva ner",
+      "Att vinna en tävling",
+      "Att hantera förväntningar och våga be om stöd",
+      "Att resa bort på lovet",
+      "Att hitta en borttappad sak",
     ],
     correct: 1,
-    explain: "Förstärka betyder göra starkare eller mer hållbar.",
+    explain:
+      "Texten handlar om press, förväntningar och att våga prata om hjälp.",
   },
   {
-    q: "Vilket är ett exempel på en berättande text?",
-    choices: ["Instruktion", "Berättelse", "Reklam", "Faktatext"],
-    correct: 1,
-    explain: "En berättelse har ofta handling, personer och en händelsekedja.",
-  },
-  {
-    q: "Vilket påstående stämmer om en instruktionstext?",
+    q: "Text A: Vad gör texten berättande?",
     choices: [
-      "Den berättar en saga",
-      "Den förklarar hur man gör något steg för steg",
-      "Den beskriver en person",
-      "Den är alltid en dikt",
+      "Den listar fakta",
+      "Den beskriver händelser och tankar hos en person",
+      "Den ger instruktioner steg för steg",
+      "Den försöker övertala läsaren",
     ],
     correct: 1,
-    explain: "Instruktionstexter visar steg för steg hur man gör.",
+    explain:
+      "Berättande texter har personer, händelser och ofta tankar/känslor.",
+  },
+
+  // =========================
+  // TEXT B – 8 frågor
+  // =========================
+  {
+    q: "Text B: Vad är textens syfte?",
+    choices: ["Underhålla", "Informera", "Övertala", "Berätta en saga"],
+    correct: 1,
+    explain:
+      "Texten är saklig och förklarar energi, energikällor och konsekvenser.",
   },
   {
-    q: "Vilken mening är mest formell (passar i skolarbete)?",
+    q: "Text B: Vad betyder “förnybara energikällor”?",
     choices: [
-      "Asså jag tycker typ att det var nice.",
-      "Det var fett bra, liksom.",
-      "Jag anser att resultatet blev bra.",
-      "Det blev bra typ, aja.",
+      "Källor som tar slut snabbt",
+      "Källor som fylls på naturligt",
+      "Källor som alltid är billiga",
+      "Källor som bara finns i Sverige",
+    ],
+    correct: 1,
+    explain:
+      "Förnybara källor fylls på av naturen, som vind, sol och vatten.",
+  },
+  {
+    q: "Text B: Vilket är ett exempel på en icke-förnybar energikälla enligt texten?",
+    choices: ["Sol", "Vind", "Vatten", "Olja"],
+    correct: 3,
+    explain:
+      "Olja (och kol) är fossila bränslen och räknas som icke-förnybara.",
+  },
+  {
+    q: "Text B: Varför vill många länder öka andelen förnybar energi?",
+    choices: [
+      "För att förnybar energi alltid är gratis",
+      "För att fossila bränslen kan bidra till mer koldioxid och uppvärmning",
+      "För att elnätet inte behövs",
+      "För att lampor blir starkare",
+    ],
+    correct: 1,
+    explain:
+      "Texten kopplar fossila bränslen till koldioxid och klimatpåverkan.",
+  },
+  {
+    q: "Text B: Vilket problem nämns med vind och sol?",
+    choices: [
+      "De är förbjudna",
+      "De fungerar bara på natten",
+      "De ger alltid för mycket el",
+      "De är beroende av väder och ljus",
+    ],
+    correct: 3,
+    explain:
+      "Texten säger att el behövs även när det inte blåser eller är sol.",
+  },
+  {
+    q: "Text B: Vad menas med “energilagring” i textens sammanhang?",
+    choices: [
+      "Att man sparar el/energi till senare",
+      "Att man kastar energi",
+      "Att man mäter energi i meter",
+      "Att man stänger av elnätet",
+    ],
+    correct: 0,
+    explain:
+      "Energilagring betyder att man kan lagra energi och använda den när den behövs.",
+  },
+  {
+    q: "Text B: Vilken av följande är ett exempel på att spara energi enligt texten?",
+    choices: [
+      "Ha lampor tända i alla rum",
+      "Sänka inomhustemperaturen en grad",
+      "Ladda mobilen hela natten",
+      "Höja temperaturen mycket",
+    ],
+    correct: 1,
+    explain:
+      "Texten nämner att sänka temperaturen en grad kan minska användningen.",
+  },
+  {
+    q: "Text B: Hur är språket i texten?",
+    choices: ["Sakligt", "Skämtsamt", "Argt", "Poetiskt"],
+    correct: 0,
+    explain:
+      "Faktatexter använder neutralt och sakligt språk.",
+  },
+
+  // =========================
+  // TEXT C – 7 frågor
+  // =========================
+  {
+    q: "Text C: Vad tycker skribenten att skolan borde införa?",
+    choices: [
+      "Längre sommarlov",
+      "Kort paus mellan längre lektioner",
+      "Mindre raster",
+      "Fler prov",
+    ],
+    correct: 1,
+    explain:
+      "Skribenten vill ha mikropauser på 3–5 minuter mellan längre pass.",
+  },
+  {
+    q: "Text C: Vilket är ett argument i texten?",
+    choices: [
+      "Jag tycker det är bra.",
+      "Det är så det är.",
+      "Elever tappar fokus när de sitter länge",
+      "Alla andra skolor gör det",
     ],
     correct: 2,
-    explain: "Formellt språk passar i skolan: 'Jag anser att…'.",
+    explain:
+      "Argument innehåller skäl – här är skälet att fokus minskar utan paus.",
   },
   {
-    q: "Vilken källa är oftast mest trovärdig för fakta om ett historiskt datum?",
+    q: "Text C: Vilket ord visar tydligt att texten försöker övertyga?",
+    choices: ["Kanske", "Därför", "Igår", "Plötsligt"],
+    correct: 1,
+    explain:
+      "“Därför” binder ihop resonemang och leder till slutsats/krav.",
+  },
+  {
+    q: "Text C: Vad menas med “arbetsro” i texten?",
     choices: [
-      "En anonym kommentar på sociala medier",
-      "En lärobok eller en myndighetssida",
-      "En reklamannons",
-      "Ett rykte från en kompis",
+      "Att man arbetar snabbare",
+      "Att klassrummet blir lugnare och man kan jobba bättre",
+      "Att man jobbar ensam",
+      "Att man får fler läxor",
     ],
     correct: 1,
-    explain: "Läroböcker och myndighetssidor är vanligtvis mer kontrollerade källor.",
+    explain:
+      "Arbetsro handlar om lugn och fokus i klassrummet.",
   },
   {
-    q: "Vilket ord är en preposition?",
-    choices: ["under", "springer", "blomma", "vacker"],
-    correct: 0,
-    explain: "Prepositioner är små ord som visar relation, t.ex. under, på, i, över.",
-  },
-  {
-    q: "Vilket ord är ett pronomen?",
-    choices: ["hon", "skriver", "penna", "snäll"],
-    correct: 0,
-    explain: "Pronomen ersätter substantiv: jag, du, han, hon, den, det, vi, ni, de.",
-  },
-  {
-    q: "Vilken mening har rätt stavning?",
-    choices: ["Jag vill värkligen gå.", "Jag vill verkligen gå.", "Jag vill verckligen gå.", "Jag vill värkligen gå!"],
+    q: "Text C: Vilken slutsats drar skribenten?",
+    choices: [
+      "Mikropauser är onödiga",
+      "Mikropauser kan ge bättre koncentration och lugnare klassrum",
+      "Raster ska tas bort",
+      "Elever ska få slippa lektioner",
+    ],
     correct: 1,
-    explain: "Rätt stavning är 'verkligen'.",
+    explain:
+      "Skribenten kopplar mikropauser till fokus och mindre avbrott.",
   },
   {
-    q: "Vilket ord är rätt särskrivet/ihopskrivet?",
-    choices: ["glass strut", "glass-strut", "glassstrut", "glasstr ut"],
+    q: "Text C: Vad skulle göra argumentationen ännu starkare?",
+    choices: [
+      "Ett faktaexempel eller en undersökning",
+      "Ett skämt",
+      "Ett rim",
+      "Ett svårare ord",
+    ],
+    correct: 0,
+    explain:
+      "Fakta/undersökningar kan stärka argument genom bevis.",
+  },
+  {
+    q: "Text C: Vilken texttyp är Text C?",
+    choices: ["Berättande", "Faktatext", "Argumenterande", "Instruktion"],
     correct: 2,
-    explain: "Ofta ska sammansatta ord skrivas ihop: glass + strut = glassstrut.",
-  },
-  {
-    q: "Vad är ett tema i en text?",
-    choices: [
-      "Textens huvudämne/budskap",
-      "Antal meningar i texten",
-      "Vilken font texten har",
-      "Vem som läser texten",
-    ],
-    correct: 0,
-    explain: "Tema är det övergripande ämnet eller budskapet, t.ex. vänskap eller mod.",
-  },
-  {
-    q: "Vad är en slutsats?",
-    choices: [
-      "En gissning utan stöd",
-      "Det man kommer fram till efter att ha tänkt igenom fakta",
-      "En rubrik",
-      "Ett citat",
-    ],
-    correct: 1,
-    explain: "En slutsats bygger på information och resonemang.",
-  },
-  {
-    q: "Vilken av dessa är en uppmaning (imperativ)?",
-    choices: ["Jag springer hem.", "Spring hem!", "Han sprang hem.", "Vi ska springa hem."],
-    correct: 1,
-    explain: "Imperativ är uppmaning: 'Spring!' 'Sitt!' 'Lyssna!'",
-  },
-  {
-    q: "Vilken mening innehåller ett citat med rätt skiljetecken?",
-    choices: [
-      'Hon sa: "Jag kommer snart".',
-      'Hon sa: "Jag kommer snart."',
-      'Hon sa "Jag kommer snart".',
-      'Hon sa, "Jag kommer snart".',
-    ],
-    correct: 1,
-    explain: "Punkten hör oftast till citatet när hela meningen är ett citat.",
-  },
-  {
-    q: "Vilket alternativ beskriver bäst skillnaden mellan fakta och åsikt?",
-    choices: [
-      "Fakta är alltid roligt, åsikt är alltid tråkigt",
-      "Fakta kan kontrolleras, åsikt är vad någon tycker",
-      "Fakta är längre än åsikt",
-      "Åsikt finns bara i böcker",
-    ],
-    correct: 1,
-    explain: "Fakta går att kontrollera. Åsikt är en värdering.",
-  },
-  {
-    q: "Vilken mening har korrekt användning av frågetecken?",
-    choices: ["Var bor du.", "Var bor du?", "Var bor du!", "Var bor du,"],
-    correct: 1,
-    explain: "Frågor avslutas med frågetecken.",
-  },
-  {
-    q: "Vad är en argumenterande text?",
-    choices: [
-      "En text som berättar en saga",
-      "En text som vill övertyga med argument",
-      "En text som ger instruktioner",
-      "En text som bara listar fakta",
-    ],
-    correct: 1,
-    explain: "Argumenterande text försöker övertyga med skäl/argument.",
-  },
-  {
-    q: "Vilket är ett exempel på ett argument?",
-    choices: [
-      "Jag tycker det är bäst.",
-      "Alla borde göra som jag.",
-      "Vi borde ha längre raster eftersom elever orkar bättre då.",
-      "Det är så.",
-    ],
-    correct: 2,
-    explain: "Ett argument ger ett skäl: 'eftersom…'.",
-  },
-  {
-    q: "Vilket av följande är en bra källa när du skriver ett arbete om Sverige?",
-    choices: ["Wikipedia utan att kolla källor", "En myndighetssida (t.ex. SCB)", "En meme", "En okänd TikTok-kommentar"],
-    correct: 1,
-    explain: "Myndigheter/statistik är ofta mer tillförlitliga för fakta.",
-  },
-  {
-    q: "Vilket ord passar bäst i meningen? 'Han var ___ efter att ha sprungit.'",
-    choices: ["trött", "träd", "trappa", "träna"],
-    correct: 0,
-    explain: "Trött är ett adjektiv som beskriver hur någon känner sig.",
-  },
-  {
-    q: "Vad är en sammanfattning?",
-    choices: [
-      "En längre version av texten",
-      "De viktigaste delarna återberättade kort",
-      "En lista med svåra ord",
-      "En ny berättelse",
-    ],
-    correct: 1,
-    explain: "En sammanfattning tar med det viktigaste och håller det kort.",
-  },
-  {
-    q: "Vilket ord är rätt böjt i meningen? 'Två ___ sprang förbi.'",
-    choices: ["pojke", "pojkar", "pojkes", "pojka"],
-    correct: 1,
-    explain: "Plural av pojke är pojkar: en pojke – två pojkar.",
-  },
-  {
-    q: "Vad är ett budskap i en berättelse?",
-    choices: [
-      "Antal sidor",
-      "Något författaren vill att läsaren ska förstå eller känna",
-      "Vilken tid det är i berättelsen",
-      "Namnet på huvudpersonen",
-    ],
-    correct: 1,
-    explain: "Budskap är det berättelsen vill förmedla, t.ex. att stå upp för andra.",
+    explain:
+      "Texten har tydlig åsikt + argument + slutsats/uppmaning.",
   },
 ];
+
 export default function NationellaProvSvenskaAk6Quiz() {
-    const [answers, setAnswers] = useState<(number | null)[]>(
-      Array(QUESTIONS.length).fill(null)
-    );
-    const [show, setShow] = useState(false);
-  
-    const answeredCount = useMemo(
-      () => answers.filter((a) => a !== null).length,
-      [answers]
-    );
-  
-    const score = useMemo(() => {
-      let total = 0;
-      for (let i = 0; i < answers.length; i++) {
-        const a = answers[i];
-        if (a === null) continue;
-        if (a === QUESTIONS[i].correct) total++;
-      }
-      return total;
-    }, [answers]);
-  
-    const pct = useMemo(() => {
-      if (!show) return 0;
-      return Math.round((score / QUESTIONS.length) * 100);
-    }, [score, show]);
-  
-    const level = useMemo(() => {
-      if (!show) return "";
-      if (pct >= 85) return "Stark nivå ✅";
-      if (pct >= 60) return "Bra grund 👍";
-      return "Behöver mer träning 💪";
-    }, [pct, show]);
-  
-    return (
-      <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-6 shadow-[0_20px_80px_rgba(0,0,0,0.25)]">
-        {/* Header */}
-        <div className="flex flex-wrap items-start justify-between gap-3">
-          <div>
-            <h2 className="text-xl font-semibold text-white/90">
-              NP-träning: Svenska åk 6
-            </h2>
-            <p className="mt-1 text-sm text-white/60">
-              Svara på frågorna och rätta för facit + förklaringar direkt.
-            </p>
-          </div>
-  
-          <div className="rounded-2xl border border-white/10 bg-black/20 px-4 py-2 text-sm text-white/70">
-            {answeredCount}/{QUESTIONS.length} svarade
-          </div>
+  const [answers, setAnswers] = useState<(number | null)[]>(
+    Array(QUESTIONS.length).fill(null)
+  );
+  const [show, setShow] = useState(false);
+
+  const answeredCount = useMemo(
+    () => answers.filter((a) => a !== null).length,
+    [answers]
+  );
+
+  const score = useMemo(() => {
+    let total = 0;
+    for (let i = 0; i < answers.length; i++) {
+      const a = answers[i];
+      if (a === null) continue;
+      if (a === QUESTIONS[i].correct) total++;
+    }
+    return total;
+  }, [answers]);
+
+  const pct = useMemo(() => {
+    if (!show) return 0;
+    return Math.round((score / QUESTIONS.length) * 100);
+  }, [score, show]);
+
+  const level = useMemo(() => {
+    if (!show) return "";
+    if (pct >= 85) return "Stark nivå ✅";
+    if (pct >= 60) return "Bra grund 👍";
+    return "Behöver mer träning 💪";
+  }, [pct, show]);
+
+  return (
+    <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-6 shadow-[0_20px_80px_rgba(0,0,0,0.25)]">
+      {/* Header */}
+      <div className="flex flex-wrap items-start justify-between gap-3">
+        <div>
+          <h2 className="text-xl font-semibold text-white/90">
+            NP-träning: Svenska åk 6
+          </h2>
+          <p className="mt-1 text-sm text-white/60">
+            Läs texterna och svara på frågorna. Tryck <b>Rätta</b> längst ner för
+            facit + förklaringar.
+          </p>
         </div>
-  
-        {/* Questions */}
-        <div className="mt-6 space-y-5">
-          {QUESTIONS.map((q, i) => {
-            const picked = answers[i];
-            const isAnswered = picked !== null;
-  
-            return (
-              <div
-                key={i}
-                className="rounded-2xl border border-white/10 bg-black/20 p-4"
-              >
-                <p className="font-medium text-white/90">
-                  {i + 1}. {q.q}
-                </p>
-  
-                <div className="mt-3 grid gap-2 sm:grid-cols-2">
-                  {q.choices.map((c, idx) => {
-                    const selected = picked === idx;
-                    const isCorrect = idx === q.correct;
-  
-                    return (
-                      <button
-                        key={idx}
-                        type="button"
-                        onClick={() => {
-                          // valfritt: lås efter rättning
-                          // if (show) return;
-  
-                          const copy = [...answers];
-                          copy[i] = idx;
-                          setAnswers(copy);
-                        }}
-                        className={[
-                          "rounded-2xl border px-4 py-3 text-left text-sm transition",
-                          "border-white/10 bg-white/[0.03] hover:bg-white/[0.06]",
-                          selected ? "border-white/25 bg-white/[0.08]" : "",
-                          show && selected && !isCorrect ? "border-rose-400/40" : "",
-                          show && isCorrect ? "border-emerald-400/40" : "",
-                        ].join(" ")}
-                      >
-                        {c}
-                      </button>
-                    );
-                  })}
-                </div>
-  
-                {show && isAnswered && (
-                  <div className="mt-3 rounded-2xl border border-white/10 bg-black/20 p-3">
-                    <p className="text-sm text-white/70">
-                      <span className="font-semibold text-white/85">Facit:</span>{" "}
-                      {q.choices[q.correct]}
-                    </p>
-                    <p className="mt-1 text-sm text-white/60">
-                      <span className="font-semibold text-white/75">Förklaring:</span>{" "}
-                      {q.explain}
-                    </p>
-                  </div>
-                )}
+
+        <div className="rounded-2xl border border-white/10 bg-black/20 px-4 py-2 text-sm text-white/70">
+          {answeredCount}/{QUESTIONS.length} svarade
+        </div>
+      </div>
+
+      {/* TEXTER (berättande + fakta + argument) */}
+      <div className="mt-6 space-y-4">
+        {(["A", "B", "C"] as const).map((key) => {
+          const t = TEXTS[key];
+          return (
+            <details
+              key={key}
+              className="rounded-2xl border border-white/10 bg-black/20 p-4"
+              open={key === "A"}
+            >
+              <summary className="cursor-pointer text-sm font-semibold text-white/90">
+                {t.title}
+              </summary>
+              <div className="mt-3 space-y-3 text-sm text-white/70">
+                {t.body.map((p, i) => (
+                  <p key={i}>{p}</p>
+                ))}
               </div>
-            );
-          })}
-        </div>
-  
-        {/* Actions – längst ner */}
-        <div className="mt-6 flex flex-wrap items-center gap-2">
-          <button
-            type="button"
-            disabled={answeredCount === 0}
-            onClick={() => setShow(true)}
-            className={[
-              "rounded-2xl px-4 py-2 text-sm font-semibold",
-              answeredCount === 0
-                ? "cursor-not-allowed bg-white/20 text-white/50"
-                : "bg-white text-black hover:opacity-90",
-            ].join(" ")}
+            </details>
+          );
+        })}
+      </div>
+
+      {/* Questions */}
+      <div className="mt-6 space-y-5">
+        {QUESTIONS.map((q, i) => (
+          <div
+            key={i}
+            className="rounded-2xl border border-white/10 bg-black/20 p-4"
           >
-            Rätta
-          </button>
-  
-          <button
-            type="button"
-            onClick={() => {
-              setAnswers(Array(QUESTIONS.length).fill(null));
-              setShow(false);
-            }}
-            className="rounded-2xl border border-white/15 bg-white/5 px-4 py-2 text-sm text-white/85 hover:bg-white/10"
-          >
-            Nollställ
-          </button>
-  
-          {show && (
-            <div className="ml-auto rounded-2xl border border-white/10 bg-black/20 px-4 py-2 text-sm text-white/80">
-              Resultat: <span className="font-semibold text-white">{score}</span> /{" "}
-              {QUESTIONS.length} • {pct}% •{" "}
-              <span className="text-white/70">{level}</span>
+            <p className="font-medium text-white/90">
+              {i + 1}. {q.q}
+            </p>
+
+            <div className="mt-3 grid gap-2 sm:grid-cols-2">
+              {q.choices.map((c, idx) => {
+                const selected = answers[i] === idx;
+                const isCorrect = idx === q.correct;
+
+                return (
+                  <button
+                    key={idx}
+                    type="button"
+                    onClick={() => {
+                      const copy = [...answers];
+                      copy[i] = idx;
+                      setAnswers(copy);
+                    }}
+                    className={[
+                      "rounded-2xl border px-4 py-3 text-left text-sm transition",
+                      "border-white/10 bg-white/[0.03] hover:bg-white/[0.06]",
+                      selected ? "border-white/25 bg-white/[0.08]" : "",
+                      show && selected && !isCorrect ? "border-rose-400/40" : "",
+                      show && isCorrect ? "border-emerald-400/40" : "",
+                    ].join(" ")}
+                  >
+                    {c}
+                  </button>
+                );
+              })}
             </div>
-          )}
-        </div>
-  
-        {/* Tips – under allt, bara efter rättning */}
+
+            {show && answers[i] !== null && (
+              <div className="mt-3 rounded-2xl border border-white/10 bg-black/20 p-3">
+                <p className="text-sm text-white/70">
+                  <span className="font-semibold text-white/85">Facit:</span>{" "}
+                  {q.choices[q.correct]}
+                </p>
+                <p className="mt-1 text-sm text-white/60">
+                  <span className="font-semibold text-white/75">Förklaring:</span>{" "}
+                  {q.explain}
+                </p>
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+
+      {/* Actions – längst ner */}
+      <div className="mt-6 flex flex-wrap items-center gap-2">
+        <button
+          type="button"
+          disabled={answeredCount === 0}
+          onClick={() => setShow(true)}
+          className={[
+            "rounded-2xl px-4 py-2 text-sm font-semibold",
+            answeredCount === 0
+              ? "cursor-not-allowed bg-white/20 text-white/50"
+              : "bg-white text-black hover:opacity-90",
+          ].join(" ")}
+        >
+          Rätta
+        </button>
+
+        <button
+          type="button"
+          onClick={() => {
+            setAnswers(Array(QUESTIONS.length).fill(null));
+            setShow(false);
+          }}
+          className="rounded-2xl border border-white/15 bg-white/5 px-4 py-2 text-sm text-white/85 hover:bg-white/10"
+        >
+          Nollställ
+        </button>
+
         {show && (
-          <div className="mt-6 rounded-2xl border border-white/10 bg-black/20 p-4 text-sm text-white/70">
-            <p className="font-semibold text-white/90">Tips inför nationella</p>
-            <ul className="mt-2 list-disc space-y-1 pl-5">
-              <li>Ordklasser: lär dig känna igen substantiv, verb och adjektiv.</li>
-              <li>Skiljetecken: punkt i slutet, komma i uppräkningar.</li>
-              <li>Ord: träna synonymer/antonymer och läs meningar noga.</li>
-              <li>Texttyper: fundera på syfte – berätta, informera eller instruera.</li>
-              <li>Källkritik: välj hellre lärobok/myndighet än “någon sa…”.</li>
-            </ul>
+          <div className="ml-auto rounded-2xl border border-white/10 bg-black/20 px-4 py-2 text-sm text-white/80">
+            Resultat: <span className="font-semibold text-white">{score}</span> /{" "}
+            {QUESTIONS.length} • {pct}% •{" "}
+            <span className="text-white/70">{level}</span>
           </div>
         )}
       </div>
-    );
-  }
+    </div>
+  );
+}

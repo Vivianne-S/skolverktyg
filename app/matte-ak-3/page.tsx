@@ -11,22 +11,56 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <main className="max-w-3xl">
-      <h1 className="text-3xl font-bold tracking-tight text-white">
-        Matte-test (åk 3)
-      </h1>
-      <p className="mt-3 text-white/70">
-        Gör quizet och få en snabb indikation på nivå + tips.
-      </p>
+      <div className="mb-6">
+        <h1 className="text-3xl font-bold tracking-tight text-white">
+          Matte-test (åk 3)
+        </h1>
+        <p className="mt-3 text-white/70">
+          Gör quizet och få en snabb indikation på nivå + tips.
+        </p>
+      </div>
 
-      <div className="mt-6">
+      {/* Tips – överst (samma upplägg som åk 6/9) */}
+      <section className="mb-8 rounded-3xl border border-white/10 bg-black/20 p-5">
+        <h2 className="text-lg font-semibold text-white/90">Tips för åk 3</h2>
+        <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-white/65">
+          <li>
+            <span className="font-semibold text-white/85">Taluppfattning:</span>{" "}
+            träna hundratal/tiotal/ental (t.ex. 346 = 300 + 40 + 6).
+          </li>
+          <li>
+            <span className="font-semibold text-white/85">Addition/Subtraktion:</span>{" "}
+            räkna i steg (−20 sen −8), och kontrollera med plus.
+          </li>
+          <li>
+            <span className="font-semibold text-white/85">Gånger:</span>{" "}
+            öva 2-, 5- och 10-tabellen lite varje dag.
+          </li>
+          <li>
+            <span className="font-semibold text-white/85">Klockan:</span>{" "}
+            “halv tre” = 2:30 (halvvägs till tre).
+          </li>
+          <li>
+            <span className="font-semibold text-white/85">Mått:</span>{" "}
+            1 m = 100 cm. Skriv upp enheten innan du svarar.
+          </li>
+          <li>
+            <span className="font-semibold text-white/85">Strategi:</span>{" "}
+            låt eleven säga högt hur den tänker – det ger snabbast utveckling.
+          </li>
+        </ul>
+      </section>
+
+      {/* Annons */}
+      <div className="mb-8">
         <AdSlot label="Annons (topp) (AdSense kommer här)" />
       </div>
 
-      <div className="mt-6">
-        <MatteAk3Quiz />
-      </div>
+      {/* Quiz */}
+      <MatteAk3Quiz />
 
-      <div className="mt-6">
+      {/* Annons */}
+      <div className="mt-8">
         <AdSlot label="Annons (under quiz) (AdSense kommer här)" />
       </div>
     </main>

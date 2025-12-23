@@ -39,7 +39,13 @@ const tools = [
     tag: "Ny",
   },
   {
-    title: "Nationella prov – matte",
+    title: "Nationella prov – matte - svenska - engelska (åk 3, 6, 9)",
+    desc: "Öva på provliknande frågor per årskurs.",
+    href: "/nationella-prov",
+    tag: "Ny",
+  },
+  {
+    title: "Nationella prov – svenska - engelska (åk 3, 6, 9",
     desc: "Öva på provliknande frågor per årskurs.",
     href: "/nationella-prov",
     tag: "Ny",

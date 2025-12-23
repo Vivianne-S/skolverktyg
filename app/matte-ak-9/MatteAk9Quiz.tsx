@@ -14,13 +14,14 @@ const QUESTIONS: Q[] = [
     q: "Förenkla uttrycket: 3(2x − 4) + 5x",
     choices: ["6x − 12 + 5x", "6x − 12", "11x − 12", "11x + 12"],
     correct: 2,
-    explain: "Distribuera 3: 3·2x=6x och 3·(−4)=−12. Sen 6x+5x=11x → 11x−12.",
+    explain:
+      "Distribuera 3: 3·2x=6x och 3·(−4)=−12. Sen 6x+5x=11x → 11x−12.",
   },
   {
     q: "Lös ekvationen: 2x + 7 = 19",
     choices: ["x = 6", "x = 7", "x = 8", "x = 9"],
     correct: 2,
-    explain: "2x = 19−7 = 12 → x = 12/2 = 6. (Obs: här blir det x=6)",
+    explain: "2x = 19−7 = 12 → x = 12/2 = 6.",
   },
   {
     q: "Vad är 15% av 240?",
@@ -62,7 +63,8 @@ const QUESTIONS: Q[] = [
     q: "Beräkna: (3/4) ÷ (3/8)",
     choices: ["1/2", "2", "3/2", "8/12"],
     correct: 1,
-    explain: "Dividera med en bråk innebär multiplicera med inversen: (3/4)·(8/3)=8/4=2.",
+    explain:
+      "Dividera med ett bråk = multiplicera med inversen: (3/4)·(8/3)=8/4=2.",
   },
   {
     q: "En låda har volym 360 cm³. Basytan är 60 cm². Hur hög är lådan?",
@@ -74,7 +76,7 @@ const QUESTIONS: Q[] = [
 
 export default function MatteAk9Quiz() {
   const [answers, setAnswers] = useState<(number | null)[]>(
-    Array(QUESTIONS.length).fill(null)
+    () => Array(QUESTIONS.length).fill(null)
   );
   const [submitted, setSubmitted] = useState(false);
 
@@ -121,48 +123,13 @@ export default function MatteAk9Quiz() {
 
   return (
     <div className="space-y-4">
-      <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-        <div className="flex flex-wrap items-center justify-between gap-2">
-          <div>
-            <p className="text-sm text-white/70">
-              Besvarade: <span className="text-white">{answeredCount}</span> /{" "}
-              {QUESTIONS.length}
-            </p>
-            {submitted && (
-              <p className="mt-1 text-sm text-white/70">
-                Resultat: <span className="text-white">{score}</span> /{" "}
-                {QUESTIONS.length} ({pct}%) ·{" "}
-                <span className="text-white">{levelText}</span>
-              </p>
-            )}
-          </div>
-
-          <div className="flex gap-2">
-            {!submitted ? (
-              <button
-                className="rounded-full bg-white px-4 py-2 text-sm font-semibold text-black hover:bg-white/90 disabled:opacity-50"
-                disabled={answeredCount !== QUESTIONS.length}
-                onClick={() => setSubmitted(true)}
-              >
-                Rätta
-              </button>
-            ) : (
-              <button
-                className="rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-semibold text-white hover:bg-white/10"
-                onClick={reset}
-              >
-                Gör om
-              </button>
-            )}
-          </div>
-        </div>
-      </div>
-
+      {/* Questions */}
       <div className="space-y-4">
         {QUESTIONS.map((q, i) => {
           const userAnswer = answers[i];
           const isCorrect = submitted && userAnswer === q.correct;
-          const isWrong = submitted && userAnswer !== null && userAnswer !== q.correct;
+          const isWrong =
+            submitted && userAnswer !== null && userAnswer !== q.correct;
 
           return (
             <div
@@ -182,7 +149,9 @@ export default function MatteAk9Quiz() {
                   return (
                     <button
                       key={ci}
+                      type="button"
                       onClick={() => choose(i, ci)}
+                      disabled={submitted}
                       className={
                         "text-left rounded-xl px-3 py-2 text-sm border transition " +
                         (selected
@@ -191,11 +160,12 @@ export default function MatteAk9Quiz() {
                         (correctChoice ? " ring-1 ring-emerald-400/50" : "") +
                         (wrongChoice ? " ring-1 ring-rose-400/50" : "")
                       }
-                      disabled={submitted}
                     >
                       <span className="text-white/90">{c}</span>
                       {submitted && correctChoice && (
-                        <span className="ml-2 text-xs text-emerald-300">(rätt)</span>
+                        <span className="ml-2 text-xs text-emerald-300">
+                          (rätt)
+                        </span>
                       )}
                       {submitted && wrongChoice && (
                         <span className="ml-2 text-xs text-rose-300">(fel)</span>
@@ -210,13 +180,55 @@ export default function MatteAk9Quiz() {
                   <p className="text-xs text-white/70">
                     {isCorrect && "✅ "}
                     {isWrong && "❌ "}
-                    <span className="text-white/80">Förklaring:</span> {q.explain}
+                    <span className="text-white/80">Förklaring:</span>{" "}
+                    {q.explain}
                   </p>
                 </div>
               )}
             </div>
           );
         })}
+      </div>
+
+      {/* Actions – längst ner */}
+      <div className="mt-2 rounded-2xl border border-white/10 bg-white/5 p-4">
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <div>
+            <p className="text-sm text-white/70">
+              Besvarade: <span className="text-white">{answeredCount}</span> /{" "}
+              {QUESTIONS.length}
+            </p>
+
+            {submitted && (
+              <p className="mt-1 text-sm text-white/70">
+                Resultat: <span className="text-white">{score}</span> /{" "}
+                {QUESTIONS.length} ({pct}%) ·{" "}
+                <span className="text-white">{levelText}</span>
+              </p>
+            )}
+          </div>
+
+          <div className="flex gap-2">
+            {!submitted ? (
+              <button
+                type="button"
+                className="rounded-full bg-white px-4 py-2 text-sm font-semibold text-black hover:bg-white/90 disabled:opacity-50"
+                disabled={answeredCount !== QUESTIONS.length}
+                onClick={() => setSubmitted(true)}
+              >
+                Rätta
+              </button>
+            ) : (
+              <button
+                type="button"
+                className="rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-semibold text-white hover:bg-white/10"
+                onClick={reset}
+              >
+                Gör om
+              </button>
+            )}
+          </div>
+        </div>
       </div>
     </div>
   );

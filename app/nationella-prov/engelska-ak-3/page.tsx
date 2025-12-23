@@ -1,0 +1,56 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import AdSlot from "@/components/AdSlot";
+import EnglishAk3Quiz from "./EnglishAk3Quiz";
+
+export const metadata: Metadata = {
+  title: "Nationella prov engelska åk 3 – öva med quiz + facit",
+  description:
+    "Öva inför nationella prov i engelska för åk 3. Övningsquiz i NP-stil med facit och korta förklaringar.",
+};
+
+export default function Page() {
+  return (
+    <main className="max-w-4xl">
+      {/* Header */}
+      <div className="flex flex-wrap items-end justify-between gap-4">
+        <div className="max-w-2xl">
+          <h1 className="text-3xl font-bold tracking-tight text-white">
+            Nationella prov – engelska åk 3
+          </h1>
+          <p className="mt-3 text-white/70">
+            Övningsquiz i NP-stil – ord, fraser,
+            läsförståelse och “classroom English”. Du får facit direkt.
+          </p>
+        </div>
+
+        <Link
+          href="/nationella-prov"
+          className="rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-2 text-sm text-white/80 hover:bg-white/[0.06]"
+        >
+          ← Tillbaka
+        </Link>
+      </div>
+
+      {/* Tips – överst */}
+      <section className="mt-8 rounded-3xl border border-white/10 bg-black/20 p-5">
+        <h2 className="text-lg font-semibold text-white/90">
+          Tips inför nationella
+        </h2>
+        <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-white/65">
+          <li>Träna “classroom English”: listen, read, circle, write, open/close.</li>
+          <li>Ordförråd: färger, siffror, dagar, familj, skola, mat.</li>
+          <li>Läs korta texter och svara: vem? vad? var? när?</li>
+          <li>Dialoger: hello, how are you, thank you, please, sorry.</li>
+          <li>Grammatik light: I am / he is / she has.</li>
+        </ul>
+      </section>
+
+      {/* Annons + quiz */}
+      <div className="mt-8">
+        <AdSlot className="mb-6" label="Annons (placeholder)" />
+        <EnglishAk3Quiz />
+      </div>
+    </main>
+  );
+}

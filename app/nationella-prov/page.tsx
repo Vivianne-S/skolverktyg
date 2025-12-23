@@ -12,13 +12,13 @@ const sections = [
     items: [
       {
         title: "Matte åk 3 – nationella",
-        desc: "Taluppfattning, +/−, klockan, mått och problemlösning.",
+        desc: "Taluppfattning, addition/subtraktion, klockan, mått och problemlösning.",
         href: "/nationella-prov/matte-ak-3",
         tag: "Åk 3",
       },
       {
         title: "Matte åk 6 – nationella",
-        desc: "Procent, bråk, geometri, ekvationer och färdighetsträning.",
+        desc: "Procent, bråk, geometri, skala, statistik och färdighetsträning.",
         href: "/nationella-prov/matte-ak-6",
         tag: "Åk 6",
       },
@@ -30,32 +30,54 @@ const sections = [
       },
     ],
   },
+
   {
     subject: "Svenska",
     items: [
       {
         title: "Svenska åk 3 – nationella",
-        desc: "Meningsbyggnad, stavning, ordklasser och språkförståelse.",
+        desc: "Meningsbyggnad, stavning, ordklasser och grundläggande språkförståelse.",
         href: "/nationella-prov/svenska-ak-3",
         tag: "Åk 3",
       },
-
       {
-        title: "Svenska åk 6 – öva inför nationella",
-        desc: "Ordklasser, skiljetecken, ordkunskap, texttyper och källkritik.",
+        title: "Svenska åk 6 – nationella",
+        desc: "Ordklasser, skiljetecken, ordkunskap, texttyper och enkel källkritik.",
         href: "/nationella-prov/svenska-ak-6",
         tag: "Åk 6",
       },
       {
-        title: "Svenska åk 9 – öva inför nationella",
-        desc: "Läsförståelse, texttyper, argumentation, källkritik och språkriktighet.",
+        title: "Svenska åk 9 – nationella",
+        desc: "Läsförståelse, texttyper, argumentation, språkriktighet och källkritik.",
         href: "/nationella-prov/svenska-ak-9",
         tag: "Åk 9",
       },
-   
     ],
   },
-  // 🔜 Engelska kommer sen
+
+  {
+    subject: "Engelska",
+    items: [
+      {
+        title: "Engelska åk 3 – nationella",
+        desc: "Enkla ord och fraser, läsförståelse, hörförståelse (NP-stil) och vardagsdialoger.",
+        href: "/nationella-prov/engelska-ak-3",
+        tag: "Åk 3",
+      },
+      {
+        title: "Engelska åk 6 – nationella",
+        desc: "Reading & listening (NP-stil), grammatik i sammanhang, ordförråd och dialoger.",
+        href: "/nationella-prov/engelska-ak-6",
+        tag: "Åk 6",
+      },
+      {
+        title: "Engelska åk 9 – nationella",
+        desc: "NP-träning med reading/inference, listening-frågor, grammar (t.ex. perfect & conditionals) och writing-strategier.",
+        href: "/nationella-prov/engelska-ak-9",
+        tag: "Åk 9",
+      },
+    ],
+  },
 ];
 
 export default function Page() {

@@ -82,8 +82,7 @@ export default function MatteAk6Quiz() {
     () => answers.filter((a) => a !== null).length,
     [answers]
   );
-
-  // ✅ Typesäker score (fixar Vercel/TS gnäll)
+  
   const score = useMemo<number>(() => {
     return answers.reduce<number>((acc, a, i) => {
       if (a === null) return acc;
@@ -142,9 +141,6 @@ export default function MatteAk6Quiz() {
                     key={idx}
                     type="button"
                     onClick={() => {
-                      // (Valfritt) lås efter "Visa resultat":
-                      // if (show) return;
-
                       const copy = [...answers];
                       copy[i] = idx;
                       setAnswers(copy);

@@ -20,7 +20,7 @@ export default function Page() {
         </p>
       </div>
 
-      {/* Tips – överst (samma upplägg som åk 6/9) */}
+      {/* Tips – överst  */}
       <section className="mb-8 rounded-3xl border border-white/10 bg-black/20 p-5">
         <h2 className="text-lg font-semibold text-white/90">Tips för åk 3</h2>
         <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-white/65">

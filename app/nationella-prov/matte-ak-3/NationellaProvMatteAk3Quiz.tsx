@@ -10,6 +10,27 @@ type Q = {
 };
 
 const QUESTIONS: Q[] = [
+  // Taluppfattning / positionssystem
+  {
+    q: "Vilket tal är störst?",
+    choices: ["408", "480", "804", "840"],
+    correct: 3,
+    explain: "Jämför hundratal först. 840 är störst.",
+  },
+  {
+    q: "Vad är 300 + 50 + 7?",
+    choices: ["357", "305", "507", "3507"],
+    correct: 0,
+    explain: "300 + 50 + 7 = 357.",
+  },
+  {
+    q: "Vilket tal saknas? 6 _ 2 (så att talet blir 602)",
+    choices: ["0", "6", "2", "9"],
+    correct: 0,
+    explain: "602 har 0 i tiotalet: 6 hundratal, 0 tiotal, 2 ental.",
+  },
+
+  // Addition / subtraktion
   {
     q: "Amir har 48 kronor. Han får 15 kronor till. Hur mycket har han nu?",
     choices: ["53", "63", "73", "83"],
@@ -17,47 +38,67 @@ const QUESTIONS: Q[] = [
     explain: "48 + 15 = 48 + 10 + 5 = 63.",
   },
   {
-    q: "Vilket tal saknas? 70 − __ = 46",
-    choices: ["14", "16", "24", "26"],
-    correct: 2,
-    explain: "70 − 24 = 46. (Du kan också räkna 46 + 24 = 70.)",
-  },
-  {
-    q: "En klass ska på utflykt. Det går 6 elever i varje bil. Klassen har 23 elever. Hur många bilar behövs minst?",
-    choices: ["3", "4", "5", "6"],
-    correct: 1,
-    explain: "3 bilar räcker till 18 elever. Det blir 5 elever kvar → en bil till. Totalt 4 bilar.",
-  },
-  {
-    q: "En penna är 12 cm. Ett sudd är 5 cm. Hur lång blir det tillsammans om du lägger dem efter varandra?",
-    choices: ["7 cm", "15 cm", "17 cm", "60 cm"],
-    correct: 2,
-    explain: "12 cm + 5 cm = 17 cm.",
-  },
-  {
-    q: "Vilken tid är det? Klockan är 09:40. Hur många minuter är det kvar till 10:00?",
-    choices: ["10", "15", "20", "40"],
+    q: "Sara har 70 kronor. Hon köper en bok för 26 kronor. Hur mycket har hon kvar?",
+    choices: ["44", "46", "56", "96"],
     correct: 0,
-    explain: "Från 09:40 till 10:00 är det 20 minuter? Nej: 09:40 → 10:00 är 20? Vänta: 40 till 60 är 20. Ja, 20 minuter.",
+    explain: "70 − 26 = (70 − 20) − 6 = 50 − 6 = 44.",
   },
   {
-    q: "Du ska dela 18 äpplen lika mellan 3 barn. Hur många äpplen får varje barn?",
+    q: "Vilket tal saknas? 90 − __ = 58",
+    choices: ["22", "28", "32", "38"],
+    correct: 2,
+    explain: "Räkna baklänges: 58 + 32 = 90, alltså saknas 32.",
+  },
+
+  // Multiplikation / division (enkla)
+  {
+    q: "Du delar 18 äpplen lika mellan 3 barn. Hur många får varje barn?",
     choices: ["5", "6", "7", "9"],
     correct: 1,
     explain: "18 ÷ 3 = 6.",
   },
   {
-    q: "Vilket tal ligger mitt emellan 30 och 40?",
-    choices: ["33", "35", "37", "45"],
-    correct: 1,
-    explain: "Mitten av 30 och 40 är 35.",
+    q: "Vad är 6 · 4?",
+    choices: ["10", "18", "24", "26"],
+    correct: 2,
+    explain: "6 fyror: 4 + 4 + 4 + 4 + 4 + 4 = 24.",
   },
   {
-    q: "Mönster: 4, 8, 12, 16, __. Vilket tal kommer sen?",
-    choices: ["18", "19", "20", "22"],
+    q: "En klass har 24 elever. De ska stå 4 i varje rad. Hur många rader blir det?",
+    choices: ["4", "5", "6", "8"],
     correct: 2,
-    explain: "Mönstret ökar med +4 varje gång. 16 + 4 = 20.",
+    explain: "24 ÷ 4 = 6 rader.",
   },
+
+  // Tid
+  {
+    q: "Klockan är 09:40. Hur många minuter är det kvar till 10:00?",
+    choices: ["10", "15", "20", "40"],
+    correct: 2,
+    explain: "Från :40 till :60 är det 20 minuter.",
+  },
+  {
+    q: "Vad betyder “halv tre”?",
+    choices: ["03:30", "02:30", "02:15", "03:00"],
+    correct: 1,
+    explain: "Halv tre betyder 2:30 (halvvägs till tre).",
+  },
+
+  // Mått / enheter
+  {
+    q: "Hur många centimeter är 1 meter?",
+    choices: ["10", "100", "1000", "60"],
+    correct: 1,
+    explain: "1 m = 100 cm.",
+  },
+  {
+    q: "En flaska rymmer 2 liter. Hur många deciliter är det?",
+    choices: ["2 dl", "10 dl", "20 dl", "200 dl"],
+    correct: 2,
+    explain: "1 liter = 10 dl. 2 liter = 20 dl.",
+  },
+
+  // Geometri (omkrets/figurer)
   {
     q: "En rektangel är 6 cm lång och 3 cm bred. Vilken omkrets har den?",
     choices: ["9 cm", "12 cm", "18 cm", "36 cm"],
@@ -65,34 +106,62 @@ const QUESTIONS: Q[] = [
     explain: "Omkrets = 6 + 3 + 6 + 3 = 18 cm.",
   },
   {
-    q: "Sara har 20 kronor. Hon köper en bok för 13 kronor. Hur mycket pengar har hon kvar?",
-    choices: ["5", "6", "7", "8"],
+    q: "Vilken figur har 4 hörn?",
+    choices: ["Triangel", "Rektangel", "Cirkel", "Oval"],
+    correct: 1,
+    explain: "Rektangel har 4 hörn.",
+  },
+
+  // Mönster / logik
+  {
+    q: "Mönster: 4, 8, 12, 16, __. Vilket tal kommer sen?",
+    choices: ["18", "19", "20", "22"],
     correct: 2,
-    explain: "20 − 13 = 7.",
+    explain: "Mönstret ökar med +4. 16 + 4 = 20.",
+  },
+  {
+    q: "Vilket tal ligger mitt emellan 30 och 40?",
+    choices: ["33", "35", "37", "45"],
+    correct: 1,
+    explain: "Mitten är 35.",
+  },
+
+  // Statistik (enkelt)
+  {
+    q: "I en klass gillar 8 elever fotboll, 6 gillar dans och 4 gillar simning. Hur många elever är det totalt?",
+    choices: ["12", "16", "18", "20"],
+    correct: 2,
+    explain: "8 + 6 + 4 = 18.",
+  },
+
+  // Bråk (grund)
+  {
+    q: "En chokladkaka är delad i 8 lika stora bitar. Du äter 3 bitar. Hur stor del har du ätit?",
+    choices: ["3/8", "5/8", "1/3", "8/3"],
+    correct: 0,
+    explain: "Du åt 3 av 8 bitar → 3/8.",
   },
   {
     q: "Vilket är störst?",
-    choices: ["209", "290", "920", "902"],
-    correct: 2,
-    explain: "920 är störst (9 hundratal).",
+    choices: ["1/2", "1/4", "1/8", "1/10"],
+    correct: 0,
+    explain: "1/2 är störst (större del av en hel).",
   },
+
+  // Textuppgift “minst antal”
+  {
+    q: "Det går 6 elever i varje bil. Klassen har 23 elever. Hur många bilar behövs minst?",
+    choices: ["3", "4", "5", "6"],
+    correct: 1,
+    explain: "3 bilar räcker till 18. 5 elever kvar → en bil till. Totalt 4.",
+  },
+
+  // Blå kulor
   {
     q: "I en burk finns 15 kulor. 6 är röda och resten är blå. Hur många är blå?",
     choices: ["6", "7", "8", "9"],
-    correct: 2,
-    explain: "15 − 6 = 9? Vänta: 15−6 = 9. Men alternativ 9 finns. Rätt är 9.",
-  },
-  {
-    q: "En chokladkaka är delad i 8 lika stora bitar. Du äter 3 bitar. Hur stor del av kakan har du ätit?",
-    choices: ["3/8", "5/8", "1/3", "8/3"],
-    correct: 0,
-    explain: "Du åt 3 av 8 lika stora bitar → 3/8.",
-  },
-  {
-    q: "En elev läser 10 sidor på måndag och 15 sidor på tisdag. Hur många sidor läser eleven sammanlagt?",
-    choices: ["20", "25", "30", "35"],
-    correct: 1,
-    explain: "10 + 15 = 25.",
+    correct: 3,
+    explain: "15 − 6 = 9 blå.",
   },
 ];
 
@@ -129,52 +198,23 @@ export default function NationellaProvMatteAk3Quiz() {
     return "Behöver mer träning 💪";
   }, [pct, submitted]);
 
+  function choose(qIndex: number, choiceIndex: number) {
+    if (submitted) return; // lås efter rättning (samma känsla som andra)
+    setAnswers((prev) => {
+      const next = [...prev];
+      next[qIndex] = choiceIndex;
+      return next;
+    });
+  }
+
+  function reset() {
+    setAnswers(Array(QUESTIONS.length).fill(null));
+    setSubmitted(false);
+  }
+
   return (
     <div className="space-y-4">
-      <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
-        <div className="flex flex-wrap items-center justify-between gap-2">
-          <div>
-            <div className="text-white font-semibold">
-              NP-träning – Matte åk 3 (övningsprov)
-            </div>
-            <div className="text-white/60 text-sm">
-              {answeredCount}/{QUESTIONS.length} besvarade
-            </div>
-          </div>
-
-          <div className="flex items-center gap-2">
-            <button
-              onClick={() => setSubmitted(true)}
-              className="rounded-full bg-white px-4 py-2 text-sm font-semibold text-black hover:bg-white/90"
-              disabled={answeredCount === 0}
-            >
-              Rätta
-            </button>
-            <button
-              onClick={() => {
-                setSubmitted(false);
-                setAnswers(Array(QUESTIONS.length).fill(null));
-              }}
-              className="rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm text-white hover:bg-white/[0.08]"
-            >
-              Nollställ
-            </button>
-          </div>
-        </div>
-
-        {submitted && (
-          <div className="mt-4 rounded-2xl border border-white/10 bg-black/30 p-4">
-            <div className="text-white font-semibold">
-              Resultat: {score}/{QUESTIONS.length} ({pct}%)
-            </div>
-            <div className="text-white/70 text-sm mt-1">{level}</div>
-            <div className="text-white/60 text-sm mt-3">
-              Tips: Läs förklaringarna på de du missade och gör quizet igen.
-            </div>
-          </div>
-        )}
-      </div>
-
+      {/* Questions */}
       <div className="space-y-4">
         {QUESTIONS.map((q, idx) => {
           const picked = answers[idx];
@@ -215,13 +255,7 @@ export default function NationellaProvMatteAk3Quiz() {
                     <button
                       key={cIdx}
                       type="button"
-                      onClick={() => {
-                        setAnswers((prev) => {
-                          const next = [...prev];
-                          next[idx] = cIdx;
-                          return next;
-                        });
-                      }}
+                      onClick={() => choose(idx, cIdx)}
                       className={[
                         "rounded-xl border px-4 py-3 text-left text-sm transition",
                         selected
@@ -234,6 +268,7 @@ export default function NationellaProvMatteAk3Quiz() {
                           ? "border-rose-500/40 bg-rose-500/10"
                           : "",
                       ].join(" ")}
+                      disabled={submitted}
                     >
                       {c}
                     </button>
@@ -253,6 +288,61 @@ export default function NationellaProvMatteAk3Quiz() {
             </div>
           );
         })}
+      </div>
+
+      {/* Actions – LÄNGST NER ✅ */}
+      <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <div>
+            <p className="text-sm text-white/70">
+              Besvarade: <span className="text-white">{answeredCount}</span> /{" "}
+              {QUESTIONS.length}
+            </p>
+
+            {submitted && (
+              <p className="mt-1 text-sm text-white/70">
+                Resultat: <span className="text-white">{score}</span> /{" "}
+                {QUESTIONS.length} ({pct}%) ·{" "}
+                <span className="text-white">{level}</span>
+              </p>
+            )}
+          </div>
+
+          <div className="flex gap-2">
+            {!submitted ? (
+              <button
+                className="rounded-full bg-white px-4 py-2 text-sm font-semibold text-black hover:bg-white/90 disabled:opacity-50"
+                disabled={answeredCount === 0}
+                onClick={() => setSubmitted(true)}
+                type="button"
+              >
+                Rätta
+              </button>
+            ) : (
+              <button
+                className="rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-semibold text-white hover:bg-white/10"
+                onClick={reset}
+                type="button"
+              >
+                Gör om
+              </button>
+            )}
+
+            <button
+              className="rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm text-white hover:bg-white/[0.08]"
+              onClick={reset}
+              type="button"
+            >
+              Nollställ
+            </button>
+          </div>
+        </div>
+
+        {submitted && (
+          <div className="mt-4 text-sm text-white/60">
+            Tips: Läs förklaringarna på de du missade och gör quizet igen.
+          </div>
+        )}
       </div>
     </div>
   );

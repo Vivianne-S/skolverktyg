@@ -52,6 +52,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <Link className="rounded-full px-3 py-2 hover:bg-white/5 hover:text-white" href="/matte-ak-6">
                 Matte åk 6
               </Link>
+              <Link className="rounded-full px-3 py-2 hover:bg-white/5 hover:text-white" href="/matte-ak-9">
+                Matte åk 9
+              </Link>
+              <Link className="rounded-full px-3 py-2 hover:bg-white/5 hover:text-white" href="/nationella-prov">
+                Nationella prov
+              </Link>
+              <Link className="rounded-full px-3 py-2 hover:bg-white/5 hover:text-white" href="/gymnasieval">
+                Gymnasieval
+              </Link>
             </nav>
           </div>
         </header>

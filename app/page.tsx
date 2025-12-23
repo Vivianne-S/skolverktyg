@@ -32,6 +32,24 @@ const tools = [
     href: "/matte-ak-6",
     tag: "Ny",
   },
+  {
+    title: "Matte-test (åk 9)",
+    desc: "Förberedande quiz inför högstadiet + facit.",
+    href: "/matte-ak-9",
+    tag: "Ny",
+  },
+  {
+    title: "Nationella prov – matte",
+    desc: "Öva på provliknande frågor per årskurs.",
+    href: "/nationella-prov",
+    tag: "Ny",
+  },
+  {
+    title: "Gymnasieval-quiz",
+    desc: "Hjälp för elever att hitta rätt inriktning.",
+    href: "/gymnasieval",
+    tag: "Ny",
+  },
 ] as const;
 
 const faqItems = [
@@ -40,7 +58,10 @@ const faqItems = [
     q: "Hur funkar betygskalkylatorn?",
     a: "Du skriver in betyg A–F, verktyget räknar ut snittbetyg och meritvärde (16 bästa).",
   },
-  { q: "Kommer fler verktyg?", a: "Ja, vi fyller på löpande." },
+  {
+    q: "Kommer fler quiz och prov?",
+    a: "Yes! Vi fyller på med fler årskurser, nationella-prov-övningar och mer.",
+  },
 ];
 
 export default function Home() {
@@ -57,7 +78,7 @@ export default function Home() {
         </p>
 
         <div className="mt-6 flex flex-wrap gap-2">
-          {["SEO-optimerat", "Mobilvänligt", "Snabb laddning"].map((t) => (
+          {["Skolverktyg för elever", "Mobilvänligt", "Snabb laddning"].map((t) => (
             <span
               key={t}
               className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/70"

@@ -13,15 +13,19 @@ export const metadata: Metadata = {
   metadataBase: new URL(meta.url),
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="sv">
       <body className="min-h-screen bg-[#070A12] text-white antialiased">
-        {/* AdSense (lägg in ditt riktiga ca-pub id) */}
+        {/* Google AdSense (site verification / loader) */}
         <Script
           async
           strategy="afterInteractive"
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXX"
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7517436157328119"
           crossOrigin="anonymous"
         />
 
@@ -32,25 +36,26 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </div>
 
         <header className="sticky top-0 z-50 border-b border-white/10 bg-[#070A12]/70 backdrop-blur">
-  <div className="mx-auto max-w-6xl px-4">
-    <div className="flex items-center justify-between py-4">
-      <Link href="/" className="group inline-flex items-center gap-2">
-        <span className="h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_24px_rgba(52,211,153,0.65)]" />
-        <span className="text-sm font-semibold tracking-wide text-white/90 group-hover:text-white">
-          Skolverktyg
-        </span>
-      </Link>
-    </div>
+          <div className="mx-auto max-w-6xl px-4">
+            <div className="flex items-center justify-between py-4">
+              <Link href="/" className="group inline-flex items-center gap-2">
+                <span className="h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_24px_rgba(52,211,153,0.65)]" />
+                <span className="text-sm font-semibold tracking-wide text-white/90 group-hover:text-white">
+                  Skolverktyg
+                </span>
+              </Link>
+            </div>
 
-    <MainNav />
-  </div>
-</header>
+            <MainNav />
+          </div>
+        </header>
 
         <main className="mx-auto max-w-6xl px-4 py-10">{children}</main>
 
         <footer className="mt-16 border-t border-white/10">
           <div className="mx-auto max-w-6xl px-4 py-10 text-sm text-white/60">
-            © {new Date().getFullYear()} Skolverktyg • Byggt för snabb hjälp, tydlig design och SEO.
+            © {new Date().getFullYear()} Skolverktyg • Byggt för snabb hjälp,
+            tydlig design och SEO.
           </div>
         </footer>
       </body>

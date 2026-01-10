@@ -37,7 +37,7 @@ export default function Page() {
       </p>
 
       <div className="mt-6">
-      <AdSlot className="mb-6" adSlot="1234567890" />
+      <AdSlot className="mb-6" adSlot="3622343285" />
       </div>
 
       <div className="mt-6">
@@ -45,7 +45,7 @@ export default function Page() {
       </div>
 
       <div className="mt-6">
-      <AdSlot className="mb-6" adSlot="1234567890" />
+      <AdSlot className="mb-6" adSlot="3622343285" />
       </div>
 
       <section className="mt-10">

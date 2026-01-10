@@ -14,7 +14,7 @@ export default function Page() {
       <p className="mt-3 text-white/70">Välj ålder så får du en snabb rekommendation + tips.</p>
 
       <div className="mt-6">
-      <AdSlot className="mb-6" adSlot="1234567890" />
+      <AdSlot className="mb-6" adSlot="3622343285" />
       </div>
 
       <div className="mt-6">
@@ -22,7 +22,7 @@ export default function Page() {
       </div>
 
       <div className="mt-6">
-      <AdSlot className="mb-6" adSlot="1234567890" />
+      <AdSlot className="mb-6" adSlot="3622343285" />
       </div>
     </main>
   );
